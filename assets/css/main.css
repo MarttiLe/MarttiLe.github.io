@@ -37,14 +37,14 @@ ul.fw {
   .fw li {
 	border-radius: 6px;
 	display: inline-block;
-	background: #530000;
+	background: hsl(0, 100%, 55%);
 	color: white;
 	padding: 5px 10px;
 	margin: 2px;
   }
   
   .fw li:nth-child(odd) {
-	background: #023658;
+	background: hsl(204, 100%, 59%);
   }
 
 blockquote, q {
