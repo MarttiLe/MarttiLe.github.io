@@ -630,8 +630,8 @@ p.foot {
   }
 
   .profile-picture {
-    max-width: 150px;
-    height: 150px;
+    max-width: 300px;
+    height: 300px;
     margin: 20px auto;
   }
 
