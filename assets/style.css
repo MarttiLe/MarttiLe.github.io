@@ -126,7 +126,7 @@ nav a:hover::after {
 }
 
 .content {
-  width: 80%;
+  width: 80vw;
   transition: opacity 0.5s;
   z-index: 2;
   display: flex;
@@ -422,8 +422,7 @@ p.foot {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 40px 20px;
-  width: 150vh;
-  height: 80vh;
+  width: 80vw;
 }
 
 .project {
