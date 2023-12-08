@@ -1,155 +1,199 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
+  <title>Martti's Portfolio</title>
+</head>
+<body>
 
-<html>
-	<head>
-		<title>Martti Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+  <header>
+    <h1 class="logo">Martti Leppmets</h1>
+    <button class="burger-menu" aria-label="Toggle Navigation"></button>
+    <nav>
+      <ul>
+        <li><a href="#front-page" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
-					<h1><strong>Hello, I am Martti.</strong> Welcome to my<br />
-					page, I am a creative mind who is always eager to advance my knowledge.<br />
-					My speciality is front-end design and development.</h1>
-				</div>
-			</header>
+  <div class="container">
+    <div id="front-page" class="page snap-section active">
+      <div class="content">
+        <div class="front-page-content">
+          <div class="text">
+            <h2 class="hover-text">Martti's World</h2><p class="intro , hover-text">Hello, I'm Martti, a passionate front-end web developer with a knack for turning ideas into immersive digital experiences.</p><br><p class="intro , hover-text">My journey in the world of web development started with a love for crafting visually appealing and user-friendly interfaces.</p>
+            <a href="/path/to/your/resume.pdf" download="Your_Name_Resume.pdf">
+              <button class="btn">
+                Download My Resume
+              </button>
+            </a>
+          </div>
+          <div class="profile-picture">
+            <div class="image-container">
+              <img src="assets/images/1.jpg" alt="Profile Picture" class="default-image">
+              <img src="assets/images/2.jpg" alt="Alternative Picture" class="hover-image">
+              <div class="text-overlay">Based in Tallinn, Estonia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<!-- Main -->
-			<div id="main">
+    <div id="about" class="page snap-section">
+      <div class="content about-content">
+        <div class="about-section toggle-section" data-section="about">
+          <h3>About Me</h3>
+          <button class="toggle-button" onmouseenter="toggleSection('about')"></button>
+          <div class="hidden-paragraphs" id="about-content">
+            <p class="hover-text">Hello, I'm Martti, a dedicated front-end web developer based in Tallinn, Estonia. With a passion for crafting captivating digital experiences, I specialize in transforming creative concepts into visually stunning and user-friendly interfaces.</p>
+            <p class="hover-text">Driven by a commitment to excellence, I pursued independent studies on Treehouse.com, honing my skills in web development. I successfully completed two bootcamps, one focused on front-end development and the other on JavaScript, further solidifying my expertise.</p>
+            <p class="hover-text">Outside the realm of coding, you'll find me capturing moments through the lens of photography, enjoying a football match, or cruising on a skateboard. Let's blend creativity with code to bring your vision to life!</p>
+          </div>
+        </div>
 
-				<!-- One -->
-					<section id="one">
-						<header class="major">
-							<h2>About myself.</h2>
-						</header>
-						<p>I am currently seeking my first job as a junior front-end web developer. My past work experiences have taken place within the food & beverage and customer service industry. However over the last two years, I have enrolled in two techdegrees via Treehouse (an online technology school) - 
-							Front End Web Development and Full Stack JavaScript course, which I have successfully completed. I am confident with the skills and knowledge that I have obtained, plus my personal qualities I would be an asset to your organisation.
-					</p>
+        <div class="skills-experience-content">
+          <div class="skills-section toggle-skills-experience" data-section="skills">
+            <h3>Skills</h3>
+            <button class="toggle-button" onmouseenter="toggleSkillsExperience('skills')"></button>
+            <div class="hidden-paragraphs" id="skills-content">
+              <ul>
+                <li>CMS (WordPress)</li>
+                <li>HTML5</li>
+                <li>CSS3, including preprocessors like Sass or Less</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Responsive Web Design</li>
+                <li>Front-end frameworks/libraries (e.g., React, Vue.js)</li>
+                <li>Version control (e.g., Git)</li>
+                <li>Task runners (e.g., Gulp, Grunt)</li>
+                <li>Module bundlers (e.g., Webpack)</li>
+                <li>Package managers (e.g., npm, Yarn)</li>
+                <li>Understanding of UI/UX design principles</li>
+                <li>Proficiency in design tools (e.g., Figma, Sketch)</li>
+                <li>Prototyping skills for interactive designs</li>
+                <li>Ensuring your projects work well across different browsers</li>
+                <li>Techniques for optimizing website performance (e.g., lazy loading, image optimization)</li>
+                <li>Unit testing</li>
+                <li>Browser Developer Tools</li>
+                <li>Strong problem-solving skills</li>
+                <li>Effective communication and collaboration</li>
+                <li>Attention to detail</li>
+                <li>Continuous learning and adaptability</li>
+                <!-- Add more skills as needed -->
+              </ul>
+            </div>
+          </div>
+          </div>
+          <div class="skills-experience-content">
 
-					<article>
-						<h2>What I have worked with.</h2>
-						<p>I have learnt the following from online courses:</p>
-						<ul class="fw">
-						  <li>HTML</li>
-						  <li>CSS</li>
-						  <li>JavaScript</li>
-						  <li>Phyton</li>
-						  <li>jQuery</li>
-						  <li>React</li>
-						  <li>Vue.js</li>
-						  <li>Angular</li>
-						  <li>Bootstrap</li>
-						  <li>Photoshop</li>
-						  <li>Lightroom</li>
-						</ul>
-						<p>I’d like to work for a web design company and create magic.</p>
-					  </article> 
+          <div class="experience-section toggle-skills-experience" data-section="experience">
+            <h3>Experience</h3>
+            <button class="toggle-button" onmouseenter="toggleSkillsExperience('experience')"></button>
+            <div class="hidden-paragraphs" id="experience-content">
+              <ul>
+                <li>
+                  <strong>Junior Front-end Developer</strong>
+                  <p>Logic OÜ - 2022-2023</p>
+                  <p>Front-end development for various clients</p>
+                  <p>User interface design and implementation</p>
+                  <p>Collaborating with cross-functional teams</p>
+                  <p>Communicating with clients</p>
+                  <p>Testing pages and reporting bugs</p>
+                  <p>Updating CMS modules and PHP versions</p>
+                </li>
+                <!-- Add more experiences as needed -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-					</section>
 
-				<!-- Two -->
-					<section id="two">
-						<h2>My portfolio</h2>
-						<div class="row">
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="project/project.quest/index.html" id="project/project.quest/index" onclick="document.location=this.id+'.html';return false;" >
-									<img src="images/thumbs/01.jpg" alt="" class="image fit thumb" />
-								</a>
-								<h3>Questioner</h3>
-								<p>JavaScript questioner.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="project/connect4/index.html" id="project/connect4/index" onclick="document.location=this.id+'.html';return false;" >
-									<img src="images/thumbs/02.jpg" alt="" class="image fit thumb" />
-								</a>
-								<h3>Connect four</h3>
-								<p>JavaScript browser game.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="project/doggoselect/index.html" id="project/doggoselect/index" onclick="document.location=this.id+'.html';return false;" >
-									<img src="images/thumbs/03.jpg" alt="" class="image fit thumb" />
-								</a>
-								<h3>Doggo Select</h3>
-								<p>Javascript fetch project for dogs.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="project/space/index.html" id="project/space/index" onclick="document.location=this.id+'.html';return false;" >
-									<img src="images/thumbs/04.jpg" alt="" class="image fit thumb" />
-								</a>
-								<h3>Space people</h3>
-								<p>Async project to see who is in space.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="project/portfoliopro/index.html" id="project/portfoliopro/index" onclick="document.location=this.id+'.html';return false;" >
-									<img src="images/thumbs/05.jpg" alt="" class="image fit thumb" />
-								</a>
-								<h3>HTML Portfolio sample</h3>
-								<p>First portfolio project.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="project/OnReg/index.html" id="project/OnReg/index" onclick="document.location=this.id+'.html';return false;" >
-									<img src="images/thumbs/06.jpg" alt="" class="image fit thumb" />
-								</a>
-								<h3>Online registaration form</h3>
-								<p>Sample of a signup for a newsletter.</p>
-							</article>
-						</div>
 
-					</section>
+    <div id="portfolio" class="page snap-section">
 
-				<!-- Three -->
-					<section id="three">
-						<h2>Contact  info</h2>
-						<p>How to get in touch with me</p>
+      <!-- Inside the #portfolio section in your HTML -->
+      <div class="projects-section">
+        <a href="https://asanimza.az/" class="project" target="_blank">
+          <img src="assets/images/thumbs/01.jpg" alt="Project 1">
+          <h4>Asan Imza</h4>
+          <p>Description of Project 1 goes here.</p>
+        </a>
 
-							<div class="col-4 col-12-small">
-								<ul class="labeled-icons">
-									<li>
-										<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
-										20 Meresihi tee.<br />
-										Kelvingi, Viimsi vald<br />
-										Edtonia
-									</li>
-									<li>
-										<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-										+37253780470
-									</li>
-									<li>
-										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-										<a href="#">marttileppmets@gmail.com</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
+        <a href="https://femmesdigitales.az/" class="project" target="_blank">
+          <img src="assets/images/thumbs/02.jpg" alt="Project 2">
+          <h4>Femmes Digitales</h4>
+          <p>Description of Project 2 goes here.</p>
+        </a>
 
-			</div>
+        <a href="https://raekoss.ee/" class="project" target="_blank">
+          <img src="assets/images/thumbs/03.jpg" alt="RaeKoss">
+          <h4>RaeKoss</h4>
+          <p>Description of Project 3 goes here.</p>
+        </a>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="https://github.com/MarttiLe.html" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href=""mailto: marttileppmets@gmail.com""  class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Martti Leppmets 2022</li></li>
-					</ul>
-				</div>
-			</footer>
+        <a href="project/connect4/index.html" class="project" target="_blank">
+          <img src="assets/images/thumbs/04.jpg" alt="Project 4">
+          <h4>Connect four</h4>
+          <p>JavaScript browser game.</p>
+        </a>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        <a href="project/doggoselect/index.html" class="project" target="_blank">
+          <img src="assets/images/thumbs/05.jpg" alt="Project 5">
+          <h4>Doggo Select</h4>
+          <p>Javascript fetch project for dogs.</p>
+        </a>
 
-	</body>
+        <a href="project/OnReg/index.html" class="project" target="_blank">
+          <img src="assets/images/thumbs/06.jpg" alt="Project 6">
+          <h4>Online registaration form</h4>
+          <p>Sample of a signup for a newsletter.</p>
+        </a>
+      </div>
+    </div>
+
+    <div id="contact" class="page snap-section">
+      <div class="content">
+        <h3 class="hover-text">Contact Me</h3>
+        <p class="hover-text">If you have any inquiries, job opportunities, or simply want to connect, I'm just a message away.</p>
+          <p class="hover-text">Feel free to reach out!</p>
+
+        <div class="contact-info">
+          <p class="hover-text">Email: <a href="mailto:marttileppmets@gmail.com">marttileppmets@gmail.com</a></p>
+          <div class="social-icons-big">
+            <a href="https://www.instagram.com/marttiga" target="_blank"><img src="assets/images/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/in/martti-leppmets-818968205/" target="_blank"><img src="assets/images/linkedin-icon.png" alt="LinkedIn"></a>
+          </div>
+        </div>
+        <p class="hover-text">I look forward to hearing from you and discussing how we can collaborate to bring innovative ideas to life.</p>
+        <p class="hover-text">Thank you for considering my profile!</p>
+      </div>
+    </div>
+
+  <div class="scroll-arrows">
+    <div class="arrow left"></div>
+    <div class="arrow right"></div>
+  </div>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/marttiga" target="_blank"><img src="assets/images/instagram-icon.png" alt="Instagram"></a>
+      <a href="https://www.linkedin.com/in/martti-leppmets-818968205/" target="_blank"><img src="assets/images/linkedin-icon.png" alt="LinkedIn"></a>
+    </div>
+    <div class="copyright">
+      <p class="foot">&copy; 2023 Martti Leppmets. All rights reserved.</p>
+    </div>
+    <div class="email">
+      <p class="foot"><a href="mailto:marttileppmets@gmail.com">marttileppmets@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
 </html>
