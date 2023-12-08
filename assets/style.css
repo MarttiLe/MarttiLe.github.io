@@ -127,8 +127,14 @@ nav a:hover::after {
 
 .content {
   width: 80%;
+  height: 80%
   transition: opacity 0.5s;
   z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 .contact-info {
