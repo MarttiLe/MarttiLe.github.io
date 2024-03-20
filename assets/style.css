@@ -25,7 +25,7 @@ nav {
   z-index: 2;
 }
 
-h1.logo {
+.logo {
   margin: 0;
   position: fixed;
   padding: 30px 20px;
