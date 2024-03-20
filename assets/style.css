@@ -26,13 +26,12 @@ nav {
 }
 
 h1.logo {
-  font-size: 1em;
   margin: 0;
-  background: none;
-  color: #fff;
   position: fixed;
   padding: 30px 20px;
   z-index: 4;
+  height: 100px;
+  width: 100px;
 }
 
 p {
