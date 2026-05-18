@@ -3,7 +3,50 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Martti Leppmets — Front-End Developer</title>
+<title>Martti Leppmets — Front-End Developer · WordPress · React</title>
+<meta name="description" content="Front-End Developer with 3+ years shipping responsive, content-managed websites for clients across fintech, iGaming, and digital agencies. WordPress · Elementor · ACF · React. Based in Tallinn, EE." />
+<meta name="keywords" content="Front-End Developer, WordPress Developer, React, JavaScript, PHP, ACF, Elementor, Tallinn, Estonia, Martti Leppmets, Hire" />
+<meta name="author" content="Martti Leppmets" />
+<meta name="theme-color" content="#5fae7c" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Martti Leppmets — Front-End Developer" />
+<meta property="og:description" content="Building responsive, content-managed websites that hold up in production. WordPress · React · 3+ years across fintech, iGaming, and agency work." />
+<meta property="og:image" content="https://marttile.github.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://marttile.github.io/" />
+<meta property="og:site_name" content="Martti Leppmets" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Martti Leppmets — Front-End Developer" />
+<meta name="twitter:description" content="WordPress · React · 3+ years. Open to roles in EU." />
+<meta name="twitter:image" content="https://marttile.github.io/og-image.png" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c0c0d'/%3E%3Ctext x='8' y='44' font-family='ui-monospace,monospace' font-size='22' font-weight='600' fill='%235fae7c'%3E%26lt%3B%3C/text%3E%3Ctext x='20' y='44' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23f1f1ee'%3EM%3C/text%3E%3Ctext x='36' y='44' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%235fae7c'%3EL%3C/text%3E%3Ctext x='48' y='44' font-family='ui-monospace,monospace' font-size='22' font-weight='600' fill='%235fae7c'%3E/%26gt%3B%3C/text%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c0c0d'/%3E%3Ctext x='8' y='44' font-family='ui-monospace,monospace' font-size='22' font-weight='600' fill='%235fae7c'%3E%26lt%3B%3C/text%3E%3Ctext x='20' y='44' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23f1f1ee'%3EM%3C/text%3E%3Ctext x='36' y='44' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%235fae7c'%3EL%3C/text%3E%3Ctext x='48' y='44' font-family='ui-monospace,monospace' font-size='22' font-weight='600' fill='%235fae7c'%3E/%26gt%3B%3C/text%3E%3C/svg%3E" />
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Martti Leppmets",
+  "jobTitle": "Front-End Developer",
+  "url": "https://marttile.github.io/",
+  "address": {"@type": "PostalAddress", "addressLocality": "Tallinn", "addressCountry": "EE"},
+  "email": "marttileppmets@gmail.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/martti-leppmets-818968205/",
+    "https://github.com/MarttiLe"
+  ],
+  "knowsAbout": ["WordPress", "React", "JavaScript", "PHP", "ACF", "Elementor", "Shopify", "Front-End Development"],
+  "worksFor": {"@type": "Organization", "name": "Olybet"}
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -107,9 +150,16 @@
     font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;
     padding:10px 16px;border-radius:8px;background:var(--ink);color:var(--bg);
     display:inline-flex;gap:8px;align-items:center;transition:all .2s ease;
+    white-space:nowrap;flex-shrink:0;
   }
   .nav-cta:hover{background:var(--accent);color:var(--on-accent)}
-  @media (max-width:720px){.navlinks{display:none}}
+  @media (max-width:720px){
+    .navlinks{display:none}
+    .brand-label{display:none}
+    .nav-cta{padding:8px 12px;font-size:10px}
+    .brand{gap:8px}
+    .wrap{padding:0 16px}
+  }
 
   /* ───── status strip ───── */
   .statusbar{
@@ -121,13 +171,30 @@
     font-family:var(--mono);font-size:10.5px;
     color:var(--ink-2);text-transform:uppercase;letter-spacing:.1em;
   }
-  .statusbar .wrap{display:flex;align-items:center;justify-content:space-between;height:36px;gap:24px;overflow:hidden;white-space:nowrap}
-  .statusbar .grp{display:flex;gap:24px;align-items:center}
+  .statusbar .wrap{display:flex;align-items:center;justify-content:space-between;height:36px;gap:16px;overflow:hidden;white-space:nowrap}
+  .statusbar .grp{display:flex;gap:18px;align-items:center;min-width:0}
   .statusbar .item{display:inline-flex;align-items:center;gap:8px;flex-shrink:0}
   .statusbar .item .v{color:var(--ink)}
   .statusbar .kbd{border:1px solid var(--line);padding:2px 6px;border-radius:3px;font-size:9.5px;color:var(--ink);background:var(--bg-2);margin-right:4px;font-weight:500}
+  .statusbar .item.long{display:inline-flex}
+  .statusbar .item.long .v.open{color:var(--accent);font-weight:500}
+  .statusbar .live-dot{
+    width:6px;height:6px;border-radius:50%;background:var(--accent);
+    position:relative;flex-shrink:0;
+  }
+  .statusbar .live-dot::after{
+    content:"";position:absolute;inset:-3px;border-radius:50%;
+    background:var(--accent);opacity:.45;animation:brand-pulse 1.8s ease-out infinite;
+  }
   @media (max-width:900px){.statusbar .grp.right{display:none}}
   @media (max-width:600px){.statusbar .item.long{display:none}}
+
+  #role-cycle{
+    display:inline-block;color:var(--accent);
+    border-right:1px solid var(--accent);padding-right:2px;
+    animation:caret-blink 1s steps(2) infinite;min-width:5ch;
+  }
+  @keyframes caret-blink{50%{border-color:transparent}}
 
   /* ───── hero bento ───── */
   section.hero{padding:24px 0 64px}
@@ -472,8 +539,9 @@
   .footer-mark{
     display:inline-flex;align-items:center;gap:14px;
     height:80px;padding:0 26px;border-radius:16px;
-    background:var(--on-accent);color:var(--bg);flex-shrink:0;
+    background:#04140a;color:#f1f1ee;flex-shrink:0;
   }
+  [data-theme="dark"] .footer-mark{background:#0a0a0b;color:#f1f1ee}
   .footer-mark .pulse{
     width:11px;height:11px;border-radius:50%;background:var(--accent);
     position:relative;flex-shrink:0;
@@ -491,7 +559,7 @@
   .footer-mark .ml{
     font-family:var(--serif);font-style:italic;font-weight:400;
     font-size:54px;line-height:1;letter-spacing:-.04em;
-    padding:0 4px;
+    padding:0 4px;color:#f1f1ee;
   }
   .footer-mark .ml .l{color:var(--accent);margin-left:-7px}
   .footer-name{
@@ -675,6 +743,312 @@
     .c-big-h{font-size:clamp(56px,12vw,80px)}
   }
 
+  /* ───── case study ───── */
+  section.showcase .wrap{padding-bottom:80px}
+  .case-card{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:14px;
+    margin-bottom:14px;
+  }
+  @media (max-width:900px){.case-card{grid-template-columns:1fr}}
+  .case-left{
+    background:var(--bg-2);border:1px solid var(--line);
+    border-radius:18px;padding:36px;position:relative;
+  }
+  .case-tag{
+    font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--ink-2);display:flex;align-items:center;gap:8px;
+  }
+  .case-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .case-title{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(56px,7vw,96px);line-height:.95;letter-spacing:-.03em;
+    margin-top:14px;
+  }
+  .case-title em{font-style:italic;color:var(--accent)}
+  .case-sub{
+    font-family:var(--serif);font-style:italic;
+    font-size:20px;color:var(--ink-2);margin-top:6px;
+  }
+  .case-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;
+  }
+  @media (max-width:720px){.case-grid{grid-template-columns:1fr;gap:14px}}
+  .step-label{
+    font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;
+    color:var(--accent);margin-bottom:6px;
+  }
+  .step-body{font-size:13.5px;line-height:1.5;color:var(--ink)}
+  .case-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:24px}
+  .case-tags span{
+    font-family:var(--mono);font-size:10px;background:var(--bg);border:1px solid var(--line);
+    padding:5px 9px;border-radius:4px;text-transform:uppercase;letter-spacing:.06em;
+  }
+  .case-right{
+    border-radius:18px;overflow:hidden;position:relative;
+    background:var(--ink);color:var(--bg);display:flex;flex-direction:column;
+    min-height:320px;
+  }
+  .case-preview{
+    flex:1;background-size:cover;background-position:center top;
+    transition:transform .5s ease;
+  }
+  .case-right:hover .case-preview{transform:scale(1.04)}
+  .case-cta{
+    padding:18px 22px;display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.14em;
+    background:var(--accent);color:var(--on-accent);
+  }
+  .case-cta .arrow{
+    width:30px;height:30px;border-radius:50%;background:var(--on-accent);color:var(--accent);
+    display:grid;place-items:center;transition:transform .25s ease;
+  }
+  .case-cta .arrow svg{width:13px;height:13px}
+  .case-right:hover .case-cta .arrow{transform:translate(4px,-4px) rotate(-12deg)}
+
+  /* ───── live demos ───── */
+  .demo-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+  }
+  @media (max-width:900px){.demo-grid{grid-template-columns:1fr}}
+  .demo-tile{
+    background:var(--bg-2);border:1px solid var(--line);border-radius:18px;
+    padding:32px;display:flex;flex-direction:column;gap:20px;
+    position:relative;overflow:hidden;min-height:480px;
+  }
+  .demo-tag{
+    font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--ink-2);display:flex;align-items:center;gap:8px;
+  }
+  .demo-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);position:relative}
+  .demo-tag .dot::after{
+    content:"";position:absolute;inset:-3px;border-radius:50%;
+    background:var(--accent);opacity:.4;animation:brand-pulse 1.8s ease-out infinite;
+  }
+  .demo-title{
+    font-family:var(--serif);font-weight:400;
+    font-size:42px;line-height:1;letter-spacing:-.02em;margin-top:8px;
+  }
+  .demo-title em{font-style:italic;color:var(--accent)}
+  .demo-sub{font-size:14px;line-height:1.5;color:var(--ink-2);max-width:42ch}
+
+  .demo-ai{background:var(--ink);color:var(--bg);border-color:transparent}
+  .demo-ai .demo-tag{color:rgba(241,241,238,.6)}
+  .demo-ai .demo-sub{color:rgba(241,241,238,.7)}
+  .demo-ai .demo-title em{color:var(--accent)}
+
+  /* ─── Color Studio ─── */
+  .demo-studio{background:var(--ink);color:var(--bg);border-color:transparent}
+  .demo-studio .demo-tag{color:rgba(241,241,238,.55)}
+  .demo-studio .demo-sub{color:rgba(241,241,238,.7)}
+  .demo-studio .demo-title em{color:var(--accent)}
+  .demo-studio .demo-label{color:rgba(241,241,238,.5)}
+
+  .studio{display:flex;flex-direction:column;gap:18px}
+  .studio-controls{display:flex;flex-direction:column;gap:14px}
+  .studio-field{display:flex;flex-direction:column;gap:7px}
+  .color-row{display:flex;gap:10px;align-items:stretch}
+  .color-pick{
+    width:50px;height:42px;padding:0;border:1px solid rgba(255,255,255,.18);
+    border-radius:8px;background:transparent;cursor:pointer;flex-shrink:0;
+  }
+  .color-pick::-webkit-color-swatch-wrapper{padding:3px;border-radius:6px}
+  .color-pick::-webkit-color-swatch{border-radius:5px;border:0}
+  .hex-input{
+    font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;
+    flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    border-radius:8px;padding:11px 14px;color:var(--bg);font-size:14px;
+  }
+  .hex-input:focus{outline:0;border-color:var(--accent);background:rgba(255,255,255,.1)}
+
+  .studio-presets{display:flex;flex-direction:column;gap:8px}
+  .preset-row{display:flex;gap:8px;flex-wrap:wrap}
+  .preset{
+    width:36px;height:36px;border-radius:50%;cursor:pointer;
+    border:2px solid transparent;transition:transform .2s ease, border-color .2s ease;
+    box-shadow:0 0 0 1px rgba(255,255,255,.08);
+  }
+  .preset:hover{transform:scale(1.08)}
+  .preset.active{border-color:var(--bg)}
+
+  .studio-preview{
+    background:var(--sp-bg, #fff);border-radius:12px;padding:18px;
+    transition:background .3s ease;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .sp-card{display:flex;flex-direction:column;gap:8px}
+  .sp-tag{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;
+    color:var(--sp-soft, #888);display:flex;align-items:center;gap:7px;
+  }
+  .sp-dot{width:6px;height:6px;border-radius:50%;background:var(--sp-accent, #5fae7c)}
+  .sp-title{
+    font-family:var(--serif);font-size:32px;line-height:1;letter-spacing:-.02em;
+    color:var(--sp-ink, #0c0c0d);
+  }
+  .sp-title em{font-style:italic;color:var(--sp-accent, #5fae7c)}
+  .sp-body{font-size:13px;line-height:1.5;color:var(--sp-ink, #0c0c0d);opacity:.7;max-width:36ch}
+  .sp-cta{
+    align-self:flex-start;margin-top:4px;
+    font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;
+    background:var(--sp-accent, #5fae7c);color:var(--sp-deep, #0a1d12);
+    border:0;padding:10px 16px;border-radius:6px;cursor:pointer;font-weight:500;
+    transition:transform .2s ease;
+  }
+  .sp-cta:hover{transform:translateY(-1px)}
+  .sp-swatches{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:6px;
+    padding-top:12px;border-top:1px solid var(--sp-line, rgba(0,0,0,.08));
+  }
+  .sp-swatch{
+    aspect-ratio:1;border-radius:6px;display:flex;align-items:flex-end;
+    padding:6px 8px;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
+  }
+  .sp-swatch span{opacity:.7}
+
+  .studio-output{display:flex;flex-direction:column;gap:8px}
+  .code-out{
+    background:rgba(0,0,0,.35);color:var(--accent);
+    font-family:var(--mono);font-size:11px;line-height:1.55;
+    padding:14px 16px;border-radius:10px;
+    border:1px dashed rgba(255,255,255,.12);
+    white-space:pre;overflow-x:auto;margin:0;
+  }
+  .copy-check{color:var(--on-accent)}
+
+  /* ─── Doggo Select (rebuilt) ─── */
+  .demo-doggo{background:var(--accent);color:var(--on-accent);border-color:transparent}
+  .demo-doggo .demo-tag{color:rgba(10,29,18,.65)}
+  .demo-doggo .demo-sub{color:rgba(10,29,18,.78)}
+  .demo-doggo .demo-title em{color:var(--bg)}
+  .demo-doggo .demo-label{color:rgba(10,29,18,.65)}
+  .doggo{display:flex;flex-direction:column;gap:14px;flex:1}
+  .doggo-controls{display:flex;gap:10px;align-items:flex-end}
+  .doggo-select{
+    appearance:none;-webkit-appearance:none;
+    background-color:#ffffff;border:1px solid var(--line);
+    color:#0c0c0d;font-weight:500;
+    padding:11px 36px 11px 14px;border-radius:8px;font:inherit;font-size:14px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235fae7c' stroke-width='2.5'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat;background-position:right 12px center;
+    cursor:pointer;width:100%;
+    color-scheme:light;
+    transition:border-color .2s ease;
+  }
+  .doggo-select:hover{border-color:var(--accent)}
+  .doggo-select:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .doggo-select option{color:#0c0c0d;background-color:#ffffff;font-weight:400}
+  [data-theme="dark"] .doggo-select{background-color:#1a1a1c;color:#f1f1ee;color-scheme:dark}
+  [data-theme="dark"] .doggo-select option{background-color:#1a1a1c;color:#f1f1ee}
+  .doggo-shuffle{flex-shrink:0;padding:11px 14px}
+  .doggo-shuffle svg{flex-shrink:0}
+
+  .doggo-stage{
+    flex:1;display:flex;flex-direction:column;gap:10px;
+    background:rgba(10,29,18,.12);border:1px dashed rgba(10,29,18,.18);
+    border-radius:12px;padding:14px;min-height:240px;
+  }
+  .doggo-grid{
+    flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+  }
+  .doggo-card{
+    aspect-ratio:1;border-radius:8px;overflow:hidden;
+    background:var(--bg) center/cover no-repeat;
+    position:relative;
+    box-shadow:inset 0 0 0 1px rgba(10,29,18,.1);
+    transition:transform .25s ease;
+  }
+  .doggo-card:hover{transform:scale(1.02)}
+  .doggo-card.loading{
+    background:linear-gradient(90deg, rgba(10,29,18,.08) 0%, rgba(10,29,18,.18) 50%, rgba(10,29,18,.08) 100%);
+    background-size:200% 100%;
+    animation:dogloader 1.4s ease-in-out infinite;
+  }
+  @keyframes dogloader{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  .doggo-card.error{
+    background:var(--bg);display:grid;place-items:center;
+    color:var(--ink-2);font-family:var(--mono);font-size:11px;text-align:center;padding:8px;
+  }
+  .doggo-meta{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:10px;
+    text-transform:uppercase;letter-spacing:.12em;color:rgba(10,29,18,.65);
+    padding:0 2px;
+  }
+  .doggo-meta .doggo-status{display:flex;align-items:center;gap:7px}
+  .doggo-meta .doggo-status::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--on-accent);
+  }
+  .doggo-meta .doggo-status.error::before{background:#c5392e}
+
+  .demo-head{display:flex;flex-direction:column;gap:6px}
+  .demo-form{display:flex;flex-direction:column;gap:10px}
+  .demo-field{display:flex;flex-direction:column;gap:5px}
+  .demo-label{
+    font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;
+    color:rgba(241,241,238,.5);
+  }
+  .demo-input{
+    width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    border-radius:8px;padding:11px 14px;color:var(--bg);font:inherit;font-size:14px;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .demo-input:focus{outline:0;border-color:var(--accent);background:rgba(255,255,255,.1)}
+  .demo-input::placeholder{color:rgba(241,241,238,.35)}
+  .demo-btn{
+    align-self:flex-start;margin-top:4px;
+    font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;
+    background:var(--accent);color:var(--on-accent);
+    padding:12px 20px;border-radius:8px;border:0;cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;font-weight:500;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .demo-btn:hover:not(:disabled){transform:translateY(-1px)}
+  .demo-btn:disabled{opacity:.6;cursor:wait}
+  .demo-dots{display:inline-block;width:1.2em;text-align:left}
+
+  .demo-output{
+    flex:1;min-height:140px;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.12);
+    border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px;
+  }
+  .ai-placeholder{display:flex;flex-direction:column;gap:8px;opacity:.5}
+  .ph-line{height:10px;background:rgba(255,255,255,.08);border-radius:3px;width:80%}
+  .ph-line.short{width:55%}
+  .ph-hint{
+    font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;
+    color:rgba(241,241,238,.4);margin-top:auto;
+  }
+  .ai-result{
+    padding:14px 16px;background:rgba(255,255,255,.05);border-radius:8px;
+    border-left:3px solid var(--accent);
+    animation:slideIn .4s ease;
+  }
+  @keyframes slideIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+  .ai-result .ai-headline{
+    font-family:var(--serif);font-size:22px;line-height:1.15;letter-spacing:-.01em;
+    color:var(--bg);margin-bottom:4px;
+  }
+  .ai-result .ai-sub{font-size:13px;color:rgba(241,241,238,.6);line-height:1.4}
+  .ai-result-num{
+    font-family:var(--mono);font-size:9.5px;color:var(--accent);
+    text-transform:uppercase;letter-spacing:.16em;margin-bottom:6px;
+  }
+  .ai-error{font-family:var(--mono);font-size:12px;color:#ff8a7c}
+
+  .iframe-wrap{
+    flex:1;border-radius:10px;overflow:hidden;border:1px solid var(--line);
+    background:var(--bg);position:relative;min-height:240px;
+  }
+  .iframe-demo{width:100%;height:100%;border:0;display:block}
+  .demo-link{
+    display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+    font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;
+    color:var(--ink);padding:8px 12px;border:1px solid var(--line);border-radius:6px;
+    transition:all .2s ease;
+  }
+  .demo-link svg{width:11px;height:11px}
+  .demo-link:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+
   /* ───── command palette ───── */
   .cmdk-veil{
     position:fixed;inset:0;z-index:100;
@@ -742,10 +1116,11 @@
           <span class="b">&lt;</span><span class="ml">M<span class="l">L</span></span><span class="b">/&gt;</span>
         </span>
       </span>
-      Martti Leppmets / Front-End Developer
+      <span class="brand-label">Martti Leppmets / Front-End Developer</span>
     </a>
     <div class="navlinks">
       <a href="#about"><span class="n">01</span>About</a>
+      <a href="#showcase"><span class="n">+</span>Showcase</a>
       <a href="#work"><span class="n">02</span>Work</a>
       <a href="#skills"><span class="n">03</span>Skills</a>
       <a href="#contact"><span class="n">04</span>Contact</a>
@@ -765,6 +1140,7 @@
     <div class="grp">
       <div class="item"><span>Tallinn</span><span class="v" id="status-time">--:--</span></div>
       <div class="item long"><span>Currently</span><span class="v">Front-end @ Olybet</span></div>
+      <div class="item long"><span class="live-dot"></span><span class="v open">Open to <span id="role-cycle">Front-End Developer</span> roles · EU</span></div>
     </div>
     <div class="grp right">
       <div class="item"><span class="kbd">/</span><span>to search</span></div>
@@ -938,6 +1314,150 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY + LIVE DEMOS -->
+<section class="section showcase" id="showcase">
+  <div class="wrap">
+    <div class="section-band">
+      <div class="num">+ — Showcase</div>
+      <h2 class="ttl">Case study + <em>live demos</em></h2>
+      <div class="meta">Proof, not promises</div>
+    </div>
+
+    <!-- CASE STUDY: RaeKoss -->
+    <div class="case-card reveal">
+      <div class="case-left">
+        <div class="case-tag"><span class="dot"></span>Featured · 2024</div>
+        <div class="case-title">RaeKoss<em>.</em></div>
+        <div class="case-sub">Solo end-to-end build — design through deployment</div>
+
+        <div class="case-grid">
+          <div class="case-step">
+            <div class="step-label">Problem</div>
+            <div class="step-body">Client needed a fully self-manageable WordPress site that could surface live API data without dev intervention every time content changed.</div>
+          </div>
+          <div class="case-step">
+            <div class="step-label">Approach</div>
+            <div class="step-body">Designed UI in Figma, then built a custom PHP layer wiring external API data into Elementor templates via ACF — so the client edits content like any normal WP page.</div>
+          </div>
+          <div class="case-step">
+            <div class="step-label">Outcome</div>
+            <div class="step-body">Shipped on time as my first solo full-cycle project. Client now updates pages independently; no hand-holding required.</div>
+          </div>
+        </div>
+
+        <div class="case-tags">
+          <span>WordPress</span>
+          <span>Elementor</span>
+          <span>ACF</span>
+          <span>PHP</span>
+          <span>REST API</span>
+          <span>Figma</span>
+        </div>
+      </div>
+
+      <a class="case-right" href="https://raekoss.ee/" target="_blank" rel="noopener">
+        <div class="case-preview" style="background-image:url('https://s.wordpress.com/mshots/v1/https%3A%2F%2Fraekoss.ee%2F?w=900&h=675')"></div>
+        <div class="case-cta">
+          Visit live site
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+    </div>
+
+    <!-- LIVE DEMOS BENTO -->
+    <div class="demo-grid">
+
+      <!-- COLOR STUDIO (live, built inline, no backend) -->
+      <div class="demo-tile demo-studio">
+        <div class="demo-head">
+          <div class="demo-tag"><span class="dot"></span>Live · pure JavaScript</div>
+          <div class="demo-title">Color <em>Studio</em></div>
+          <div class="demo-sub">Pick any color — generates a harmonious OKLCH palette and applies it to a live card. The same modern CSS-color math powering this site.</div>
+        </div>
+
+        <div class="studio">
+          <div class="studio-controls">
+            <label class="studio-field">
+              <span class="demo-label">Accent</span>
+              <div class="color-row">
+                <input type="color" id="studio-color" value="#5fae7c" class="color-pick" />
+                <input type="text" id="studio-hex" value="#5FAE7C" class="demo-input hex-input" maxlength="7" />
+              </div>
+            </label>
+
+            <div class="studio-presets">
+              <span class="demo-label">Or try</span>
+              <div class="preset-row" id="presets"></div>
+            </div>
+          </div>
+
+          <div class="studio-preview" id="studio-preview">
+            <div class="sp-card">
+              <div class="sp-tag"><span class="sp-dot"></span>LIVE PREVIEW</div>
+              <div class="sp-title">Hello, <em>world</em>.</div>
+              <div class="sp-body">A card rendered using your generated palette. Every value updates live as you change the accent.</div>
+              <button class="sp-cta">Get started</button>
+            </div>
+
+            <div class="sp-swatches">
+              <div class="sp-swatch" id="sw-bg"><span>BG</span></div>
+              <div class="sp-swatch" id="sw-soft"><span>SOFT</span></div>
+              <div class="sp-swatch" id="sw-accent"><span>ACCENT</span></div>
+              <div class="sp-swatch" id="sw-deep"><span>DEEP</span></div>
+              <div class="sp-swatch" id="sw-ink"><span>INK</span></div>
+            </div>
+          </div>
+
+          <div class="studio-output">
+            <pre id="studio-css" class="code-out"></pre>
+            <button id="studio-copy" class="demo-btn">
+              <span class="copy-label">Copy CSS</span>
+              <span class="copy-check" hidden>✓ Copied</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOGGO SELECT (rebuilt inline, matches page style) -->
+      <div class="demo-tile demo-doggo">
+        <div class="demo-head">
+          <div class="demo-tag"><span class="dot"></span>Live · Fetch API + async</div>
+          <div class="demo-title">Doggo <em>Select</em></div>
+          <div class="demo-sub">Pick a breed — pulls fresh images from a public REST API. Loading states, error handling, async UX.</div>
+        </div>
+
+        <div class="doggo">
+          <div class="doggo-controls">
+            <label class="studio-field" style="flex:1;min-width:0">
+              <span class="demo-label">Breed</span>
+              <select id="doggo-breed" class="demo-input doggo-select">
+                <option value="">Loading breeds…</option>
+              </select>
+            </label>
+            <button id="doggo-shuffle" class="demo-btn doggo-shuffle" aria-label="Shuffle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="14" height="14"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+              <span>Shuffle</span>
+            </button>
+          </div>
+
+          <div class="doggo-stage" id="doggo-stage" aria-live="polite">
+            <div class="doggo-grid" id="doggo-grid">
+              <div class="doggo-card loading"></div>
+              <div class="doggo-card loading"></div>
+              <div class="doggo-card loading"></div>
+            </div>
+            <div class="doggo-meta" id="doggo-meta">
+              <span class="doggo-status">Fetching first batch…</span>
+              <span class="doggo-source">dog.ceo/api</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1174,6 +1694,220 @@
     localStorage.setItem('ml-theme', next);
   });
 
+  // ───── Color Studio (live OKLCH palette) ─────
+  (function(){
+    const colorInput = document.getElementById('studio-color');
+    const hexInput   = document.getElementById('studio-hex');
+    const preview    = document.getElementById('studio-preview');
+    const cssOut     = document.getElementById('studio-css');
+    const copyBtn    = document.getElementById('studio-copy');
+    const presetRow  = document.getElementById('presets');
+    if (!colorInput) return;
+
+    // hex -> rgb -> oklch (approximation)
+    function hexToRgb(h){
+      h = h.replace('#','');
+      if (h.length === 3) h = h.split('').map(c => c+c).join('');
+      const n = parseInt(h, 16);
+      return [(n>>16)&255, (n>>8)&255, n&255];
+    }
+    function srgbToLin(c){c/=255; return c<=0.04045 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4);}
+    function rgbToOklch([r,g,b]){
+      const lr=srgbToLin(r), lg=srgbToLin(g), lb=srgbToLin(b);
+      const l = 0.4122214708*lr + 0.5363325363*lg + 0.0514459929*lb;
+      const m = 0.2119034982*lr + 0.6806995451*lg + 0.1073969566*lb;
+      const s = 0.0883024619*lr + 0.2817188376*lg + 0.6299787005*lb;
+      const l_=Math.cbrt(l), m_=Math.cbrt(m), s_=Math.cbrt(s);
+      const L  = 0.2104542553*l_ + 0.7936177850*m_ - 0.0040720468*s_;
+      const A  = 1.9779984951*l_ - 2.4285922050*m_ + 0.4505937099*s_;
+      const B2 = 0.0259040371*l_ + 0.7827717662*m_ - 0.8086757660*s_;
+      const C = Math.sqrt(A*A + B2*B2);
+      let H = Math.atan2(B2, A) * 180 / Math.PI;
+      if (H < 0) H += 360;
+      return { L: +L.toFixed(3), C: +C.toFixed(3), H: +H.toFixed(1) };
+    }
+
+    function fmtOklch({L, C, H}, l, c){
+      const newL = l !== undefined ? l : L;
+      const newC = c !== undefined ? c : C;
+      return `oklch(${newL} ${newC} ${H})`;
+    }
+
+    function generate(hex){
+      const okl = rgbToOklch(hexToRgb(hex));
+      const accent = fmtOklch(okl);
+      const soft   = fmtOklch(okl, Math.min(0.96, okl.L + 0.32), Math.max(0.02, okl.C * 0.18));
+      const deep   = fmtOklch(okl, Math.max(0.18, okl.L - 0.42), Math.max(0.04, okl.C * 0.4));
+      const bg     = fmtOklch(okl, Math.min(0.98, okl.L + 0.36), Math.max(0.01, okl.C * 0.06));
+      const ink    = fmtOklch(okl, 0.18, Math.max(0.02, okl.C * 0.25));
+      const line   = fmtOklch(okl, Math.min(0.9, okl.L + 0.24), Math.max(0.02, okl.C * 0.1));
+      return { accent, soft, deep, bg, ink, line };
+    }
+
+    function apply(hex){
+      const p = generate(hex);
+      preview.style.setProperty('--sp-bg', p.bg);
+      preview.style.setProperty('--sp-soft', p.soft);
+      preview.style.setProperty('--sp-accent', p.accent);
+      preview.style.setProperty('--sp-deep', p.deep);
+      preview.style.setProperty('--sp-ink', p.ink);
+      preview.style.setProperty('--sp-line', p.line);
+
+      const swatches = {bg:p.bg, soft:p.soft, accent:p.accent, deep:p.deep, ink:p.ink};
+      Object.entries(swatches).forEach(([k,v]) => {
+        const el = document.getElementById('sw-' + k);
+        if (el) { el.style.background = v; el.style.color = (k==='bg' || k==='soft') ? p.ink : p.bg; }
+      });
+
+      cssOut.textContent =
+`:root {
+  --bg:     ${p.bg};
+  --soft:   ${p.soft};
+  --accent: ${p.accent};
+  --deep:   ${p.deep};
+  --ink:    ${p.ink};
+  --line:   ${p.line};
+}`;
+    }
+
+    // hex <-> color sync
+    function syncFromColor(){
+      hexInput.value = colorInput.value.toUpperCase();
+      apply(colorInput.value);
+      setActive(colorInput.value.toLowerCase());
+    }
+    function syncFromHex(){
+      let v = hexInput.value.trim();
+      if (!v.startsWith('#')) v = '#' + v;
+      if (!/^#([0-9a-f]{6})$/i.test(v)) return;
+      colorInput.value = v;
+      apply(v);
+      setActive(v.toLowerCase());
+    }
+    colorInput.addEventListener('input', syncFromColor);
+    hexInput.addEventListener('input', syncFromHex);
+
+    // presets
+    const presets = ['#5fae7c', '#2a6fdb', '#d97757', '#e0c34c', '#7c3aed', '#0c0c0d'];
+    function setActive(hex){
+      [...presetRow.children].forEach(c => c.classList.toggle('active', c.dataset.hex === hex));
+    }
+    presets.forEach(hex => {
+      const b = document.createElement('button');
+      b.className = 'preset';
+      b.dataset.hex = hex;
+      b.style.background = hex;
+      b.setAttribute('aria-label', 'Try ' + hex);
+      b.addEventListener('click', () => {
+        colorInput.value = hex; hexInput.value = hex.toUpperCase(); apply(hex); setActive(hex);
+      });
+      presetRow.appendChild(b);
+    });
+
+    // copy
+    copyBtn.addEventListener('click', async () => {
+      const check = copyBtn.querySelector('.copy-check');
+      const label = copyBtn.querySelector('span:not(.copy-check)');
+      try {
+        await navigator.clipboard.writeText(cssOut.textContent);
+        label.hidden = true; check.hidden = false;
+        setTimeout(() => { label.hidden = false; check.hidden = true; }, 1600);
+      } catch(e){ console.warn(e); }
+    });
+
+    // init
+    apply('#5fae7c');
+    setActive('#5fae7c');
+  })();
+
+  // ───── Doggo Select (rebuilt with Fetch API) ─────
+  (function(){
+    const sel = document.getElementById('doggo-breed');
+    const shuffle = document.getElementById('doggo-shuffle');
+    const grid = document.getElementById('doggo-grid');
+    const meta = document.getElementById('doggo-meta');
+    const status = meta?.querySelector('.doggo-status');
+    if (!sel) return;
+
+    const API = 'https://dog.ceo/api';
+    let currentBreed = '';
+
+    function setStatus(msg, isError){
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.toggle('error', !!isError);
+    }
+    function setCards(count){
+      grid.innerHTML = '';
+      for (let i=0;i<count;i++){
+        const c = document.createElement('div');
+        c.className = 'doggo-card loading';
+        grid.appendChild(c);
+      }
+    }
+
+    async function loadBreeds(){
+      try {
+        setStatus('Fetching breeds…');
+        const r = await fetch(`${API}/breeds/list/all`);
+        const data = await r.json();
+        if (data.status !== 'success') throw new Error('Bad response');
+        const breeds = Object.keys(data.message).sort();
+        sel.innerHTML = '<option value="random">— Random surprise —</option>' +
+          breeds.map(b => `<option value="${b}">${b.charAt(0).toUpperCase()+b.slice(1)}</option>`).join('');
+        sel.value = 'random';
+        loadImages('random');
+      } catch(err){
+        console.error(err);
+        setStatus('Couldn\'t reach dog.ceo', true);
+      }
+    }
+
+    async function loadImages(breed){
+      currentBreed = breed;
+      setCards(3);
+      const label = breed === 'random' ? 'random dogs' : breed;
+      setStatus(`Loading ${label}…`);
+      try {
+        const url = breed === 'random'
+          ? `${API}/breeds/image/random/3`
+          : `${API}/breed/${breed}/images/random/3`;
+        const r = await fetch(url);
+        const data = await r.json();
+        if (data.status !== 'success') throw new Error('No images');
+        const imgs = Array.isArray(data.message) ? data.message : [data.message];
+        renderImages(imgs.slice(0, 3));
+        setStatus(`${imgs.length} fresh dogs · ${label}`);
+      } catch(err){
+        console.error(err);
+        setStatus('Couldn\'t load — try shuffle', true);
+        grid.innerHTML = '<div class="doggo-card error">Failed to load</div>'.repeat(3);
+      }
+    }
+
+    function renderImages(urls){
+      grid.innerHTML = '';
+      urls.forEach((src, i) => {
+        const c = document.createElement('div');
+        c.className = 'doggo-card loading';
+        grid.appendChild(c);
+        const img = new Image();
+        img.onload = () => {
+          c.style.backgroundImage = `url(${src})`;
+          c.classList.remove('loading');
+          c.style.animationDelay = `${i*60}ms`;
+        };
+        img.onerror = () => c.classList.add('error');
+        img.src = src;
+      });
+    }
+
+    sel.addEventListener('change', () => loadImages(sel.value));
+    shuffle.addEventListener('click', () => loadImages(currentBreed || 'random'));
+
+    loadBreeds();
+  })();
+
   // ───── reveal ─────
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
@@ -1188,6 +1922,30 @@
     document.getElementById('status-time').textContent = `${hh}:${mm}`;
   }
   updateTime(); setInterval(updateTime, 30000);
+
+  // ───── role cycler ─────
+  (function cycleRoles(){
+    const el = document.getElementById('role-cycle');
+    if (!el) return;
+    const roles = [
+      'Front-End Developer',
+      'Web Developer',
+      'WordPress Developer',
+      'Marketing Tech',
+      'Webmaster'
+    ];
+    let i = 0, j = 0, dir = 1;
+    function tick(){
+      const target = roles[i];
+      j += dir;
+      el.textContent = target.slice(0, j);
+      let delay = 70;
+      if (j === target.length){ dir = -1; delay = 2400; }
+      else if (j === 0){ dir = 1; i = (i + 1) % roles.length; delay = 400; }
+      setTimeout(tick, delay);
+    }
+    setTimeout(tick, 1200);
+  })();
 
   // ───── email assembled at runtime (avoids Cloudflare protection) ─────
   (function(){
