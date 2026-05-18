@@ -40,8 +40,7 @@
   "address": {"@type": "PostalAddress", "addressLocality": "Tallinn", "addressCountry": "EE"},
   "email": "marttileppmets@gmail.com",
   "sameAs": [
-    "https://www.linkedin.com/in/martti-leppmets-818968205/",
-    "https://github.com/MarttiLe"
+    "https://www.linkedin.com/in/martti-leppmets-818968205/"
   ],
   "knowsAbout": ["WordPress", "React", "JavaScript", "PHP", "ACF", "Elementor", "Shopify", "Front-End Development"],
   "worksFor": {"@type": "Organization", "name": "OlyBet"}
@@ -331,7 +330,7 @@
   .section{padding:0;border-top:1px solid var(--line)}
   .section-band{
     display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:32px;
-    padding:80px 0 36px;
+    padding:56px 0 32px;
   }
   .section-band .num{
     font-family:var(--mono);font-size:11px;color:var(--accent);
@@ -353,7 +352,7 @@
   }
 
   /* ───── about ───── */
-  section.about .wrap{padding-bottom:80px}
+  section.about .wrap{padding-bottom:56px}
   .about-grid{
     display:grid;grid-template-columns:1.4fr 1fr;gap:20px;
     grid-auto-rows:minmax(120px,auto);
@@ -456,7 +455,7 @@
   @media (max-width:900px){.preview{display:none}}
 
   /* ───── skills bento ───── */
-  section.skills .wrap{padding-bottom:80px}
+  section.skills .wrap{padding-bottom:56px}
   .skills-bento{
     display:grid;grid-template-columns:repeat(12,1fr);
     grid-auto-rows:minmax(120px,auto);gap:14px;
@@ -496,7 +495,7 @@
   /* ───── contact ───── */
   section.contact{
     background:var(--accent);color:var(--on-accent);
-    margin-top:0;padding:120px 0 60px;position:relative;overflow:hidden;
+    margin-top:0;padding:96px 0 60px;position:relative;overflow:hidden;
     border-top:1px solid var(--line);
   }
   section.contact .section-band{padding-top:0}
@@ -608,7 +607,7 @@
   }
 
   /* ───── what i bring ───── */
-  section.bring .wrap{padding-bottom:80px}
+  section.bring .wrap{padding-bottom:56px}
   .bring-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
   }
@@ -744,7 +743,7 @@
   }
 
   /* ───── case study ───── */
-  section.showcase .wrap{padding-bottom:80px}
+  section.showcase .wrap{padding-bottom:56px}
   .case-card{
     display:grid;grid-template-columns:1.3fr 1fr;gap:14px;
     margin-bottom:14px;
@@ -1069,6 +1068,38 @@
   .sample-mark .sm-b{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent)}
   .sample-mark .sm-ml{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1;letter-spacing:-.04em;color:#e6e6e6;padding:0 2px}
   .sample-mark .sm-l{color:var(--accent);margin-left:-3px}
+
+  /* ─── Mobile collapse for Figma frame ─── */
+  .fig-mobile-expand{
+    display:none;width:100%;padding:14px 16px;
+    background:#1e1e1e;color:#e6e6e6;border:0;border-top:1px solid #3a3a3a;
+    cursor:pointer;font:inherit;text-align:left;
+    align-items:center;gap:12px;
+  }
+  .fig-me-tag{
+    font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;
+    color:#9a9a9a;display:flex;align-items:center;gap:8px;
+  }
+  .fig-me-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .fig-me-label{
+    font-family:var(--mono);font-size:11.5px;color:#e6e6e6;
+    text-transform:uppercase;letter-spacing:.12em;margin-left:auto;
+  }
+  .fig-me-arrow{
+    width:20px;height:20px;color:var(--accent);
+    transition:transform .25s ease;
+  }
+  .fig-me-arrow svg{width:14px;height:14px}
+  .fig-mobile-expand[aria-expanded="true"] .fig-me-arrow{transform:rotate(180deg)}
+  .fig-mobile-expand[aria-expanded="true"] .fig-me-label{color:#9a9a9a}
+
+  @media (max-width:720px){
+    .fig-mobile-expand{display:flex}
+    .demo-system .fb-tabs{overflow-x:auto;scrollbar-width:none}
+    .demo-system .fb-tabs::-webkit-scrollbar{display:none}
+    .demo-system .figma-canvas[data-panel]{display:none}
+    .demo-system.fig-open .figma-canvas[data-panel]:not([hidden]){display:block}
+  }
 
   /* ─── Wireframes panel ─── */
   .fb-tab{border:0;cursor:pointer;font-family:inherit}
@@ -1847,6 +1878,13 @@
         </div>
       </div>
 
+      <!-- mobile-only expand toggle -->
+      <button class="fig-mobile-expand" id="fig-expand" type="button" aria-expanded="false">
+        <span class="fig-me-tag"><span class="dot"></span>Design System · Wireframes · Case Study</span>
+        <span class="fig-me-label">Tap to open frame</span>
+        <span class="fig-me-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+
       <!-- DESIGN SYSTEM PANEL -->
       <div class="figma-canvas" data-panel="design">
         <div class="frame-tag">Frame · Design System / 01</div>
@@ -2225,7 +2263,7 @@
         <div class="list">
           <div class="row"><span>HTML · CSS · JavaScript · PHP</span><span class="lv">5 / 5</span></div>
           <div class="row"><span>WordPress · Elementor · ACF</span><span class="lv">5 / 5</span></div>
-          <div class="row"><span>Git · GitHub</span><span class="lv">5 / 5</span></div>
+          <div class="row"><span>Git · version control</span><span class="lv">5 / 5</span></div>
           <div class="row"><span>React</span><span class="lv">4 / 5</span></div>
           <div class="row"><span>Shopify · WooCommerce</span><span class="lv">4 / 5</span></div>
           <div class="row"><span>REST APIs · async data</span><span class="lv">4 / 5</span></div>
@@ -2301,13 +2339,6 @@
         <div class="c-social-foot">Profile <span class="c-arrow">↗</span></div>
       </a>
 
-      <!-- GitHub -->
-      <a class="c-tile c-social c-github" href="https://github.com/MarttiLe" target="_blank" rel="noopener">
-        <div class="c-tile-tag"><span class="dot"></span>GitHub</div>
-        <div class="c-social-h">@<em>MarttiLe</em></div>
-        <div class="c-social-foot">Code <span class="c-arrow">↗</span></div>
-      </a>
-
       <!-- Instagram -->
       <a class="c-tile c-social c-insta" href="https://www.instagram.com/marttiga" target="_blank" rel="noopener">
         <div class="c-tile-tag"><span class="dot"></span>Instagram</div>
@@ -2340,7 +2371,6 @@
         <div>
           <div class="footer-h">Reach me</div>
           <a href="https://www.linkedin.com/in/martti-leppmets-818968205/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="https://github.com/MarttiLe" target="_blank" rel="noopener">GitHub ↗</a>
           <a href="https://www.instagram.com/marttiga" target="_blank" rel="noopener">Instagram ↗</a>
         </div>
         <div>
@@ -2681,6 +2711,17 @@
         zoom.textContent = Math.round(v * 100) + '% ' + (zi === 0 ? '+' : '↺');
       });
     }
+
+    // Mobile expand toggle
+    const expand = document.getElementById('fig-expand');
+    const system = document.querySelector('.demo-system');
+    if (expand && system){
+      expand.addEventListener('click', () => {
+        const open = system.classList.toggle('fig-open');
+        expand.setAttribute('aria-expanded', String(open));
+        expand.querySelector('.fig-me-label').textContent = open ? 'Tap to close' : 'Tap to open frame';
+      });
+    }
   })();
 
   // ───── reveal ─────
@@ -2760,7 +2801,6 @@
     {group:'Actions', label:'Email Martti', hint:'mail', ico:'@', mail:true},
     {group:'Actions', label:'Toggle dark mode', hint:'theme', ico:'☾', toggle:true},
     {group:'Elsewhere', label:'LinkedIn', hint:'↗', ico:'in', href:'https://www.linkedin.com/in/martti-leppmets-818968205/', external:true},
-    {group:'Elsewhere', label:'GitHub', hint:'↗', ico:'gh', href:'https://github.com/MarttiLe', external:true},
     {group:'Projects', label:'RaeKoss', hint:'live ↗', ico:'01', href:'https://raekoss.ee/', external:true},
     {group:'Projects', label:'Femmes Digitales', hint:'live ↗', ico:'02', href:'https://femmesdigitales.az/', external:true},
     {group:'Projects', label:'Asan Imza', hint:'live ↗', ico:'03', href:'https://asanimza.az/', external:true},
