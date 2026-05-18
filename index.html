@@ -84,6 +84,53 @@
   }
   ::selection{background:var(--accent);color:var(--on-accent)}
 
+  /* ───── scroll progress bar ───── */
+  .scroll-progress{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    height:3px;background:transparent;pointer-events:none;
+  }
+  .scroll-progress::before{
+    content:"";display:block;height:100%;width:var(--p,0%);
+    background:linear-gradient(90deg, var(--accent), var(--accent-2));
+    box-shadow:0 0 12px var(--accent);
+    transition:width .12s linear;
+  }
+
+  /* ───── nav active state ───── */
+  .navlinks a.active{
+    color:var(--ink);background:var(--bg-2);
+  }
+  .navlinks a.active .n{color:var(--accent)}
+
+  /* ───── hero bento stagger ───── */
+  .bento .tile{
+    opacity:0;transform:translateY(14px);
+    transition:opacity .55s cubic-bezier(.2,.7,.2,1), transform .55s cubic-bezier(.2,.7,.2,1);
+  }
+  .bento.in .tile{opacity:1;transform:none}
+  .bento.in .tile:nth-child(1){transition-delay:.05s}
+  .bento.in .tile:nth-child(2){transition-delay:.13s}
+  .bento.in .tile:nth-child(3){transition-delay:.21s}
+  .bento.in .tile:nth-child(4){transition-delay:.29s}
+  .bento.in .tile:nth-child(5){transition-delay:.37s}
+  .bento.in .tile:nth-child(6){transition-delay:.45s}
+
+  /* ───── reduced motion ───── */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;
+      scroll-behavior:auto !important;
+    }
+    .cursor-glow{display:none !important}
+    .live-dot::after,.demo-tag .dot::after,.brand .mark .pulse::after,
+    .footer-mark .pulse::after,.ls-dot::after{animation:none !important;display:none !important}
+    #role-cycle{border-right:0 !important;animation:none !important}
+    .scroll-progress::before{transition:none !important}
+    .bento .tile{opacity:1 !important;transform:none !important}
+  }
+
   /* ───── scrollbar ───── */
   html{scrollbar-color:var(--accent) var(--bg-2);scrollbar-width:thin}
   ::-webkit-scrollbar{width:10px;height:10px}
@@ -1500,6 +1547,8 @@
 </head>
 <body data-screen-label="01 Portfolio">
 
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
 <div class="cursor-glow" id="cursor"></div>
 
 <!-- NAV -->
@@ -2739,6 +2788,49 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ───── hero bento staggered reveal on load ─────
+  requestAnimationFrame(() => {
+    const bento = document.querySelector('.bento');
+    if (bento) bento.classList.add('in');
+  });
+
+  // ───── scroll progress bar ─────
+  (function(){
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    let raf = 0;
+    function update(){
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? (window.scrollY / max) * 100 : 0;
+      bar.style.setProperty('--p', p.toFixed(2) + '%');
+      raf = 0;
+    }
+    window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // ───── active nav link on scroll ─────
+  (function(){
+    const links = [...document.querySelectorAll('.navlinks a[href^="#"]')];
+    const map = new Map();
+    links.forEach(a => {
+      const id = a.getAttribute('href').slice(1);
+      const sec = document.getElementById(id);
+      if (sec) map.set(sec, a);
+    });
+    if (!map.size) return;
+    const navIo = new IntersectionObserver(entries => {
+      // Pick the section with the largest intersection ratio currently in view.
+      const visible = entries.filter(e => e.isIntersecting);
+      if (!visible.length) return;
+      visible.sort((a,b) => b.intersectionRatio - a.intersectionRatio);
+      const top = visible[0].target;
+      links.forEach(a => a.classList.toggle('active', map.get(top) === a));
+    }, { rootMargin: '-25% 0px -55% 0px', threshold: [0, .15, .3, .5] });
+    map.forEach((_, sec) => navIo.observe(sec));
+  })();
 
   // ───── status strip: Tallinn time + last shipped ─────
   function updateTime(){
