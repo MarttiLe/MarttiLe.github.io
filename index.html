@@ -558,8 +558,8 @@
     <div class="contact-grid">
       <div>
         <h3 class="contact-h">Let's build<br/>something <em>good</em>.</h3>
-        <a class="contact-mail" href="/cdn-cgi/l/email-protection#e28f839096968b8e8792928f879691a2858f838b8ecc818d8f">
-          <span class="__cf_email__" data-cfemail="224f435056564b4e4752524f47565162454f434b4e0c414d4f">[email&#160;protected]</span>
+        <a class="contact-mail" id="mail-link" href="#">
+          <span id="mail-text">marttileppmets</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>
         </a>
       </div>
@@ -579,7 +579,7 @@
   </div>
 </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Project data
   // Live screenshots via WordPress mShots (free, no key)
   const shot = (u) => `https://s.wordpress.com/mshots/v1/${encodeURIComponent(u)}?w=900&h=675`;
@@ -644,6 +644,17 @@
     root.dataset.theme = next;
     localStorage.setItem('ml-theme', next);
   });
+
+  // Build email at runtime so Cloudflare/GH Pages doesn't obfuscate it
+  (function(){
+    const user = ['m','a','r','t','t','i','l','e','p','p','m','e','t','s'].join('');
+    const domain = ['gmail','com'].join('.');
+    const addr = user + String.fromCharCode(64) + domain;
+    const link = document.getElementById('mail-link');
+    const text = document.getElementById('mail-text');
+    if(link){ link.href = 'mai' + 'lto:' + addr; }
+    if(text){ text.textContent = addr; }
+  })();
 
   // reveal on scroll
   const io = new IntersectionObserver(entries=>{
