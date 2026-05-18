@@ -77,6 +77,8 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+  /* anchor offset for sticky nav (64px) + status strip (36px) */
+  section[id]{scroll-margin-top:108px}
   body{
     background:var(--bg);color:var(--ink);font-family:var(--sans);
     -webkit-font-smoothing:antialiased;line-height:1.5;
@@ -2822,13 +2824,12 @@
     });
     if (!map.size) return;
     const navIo = new IntersectionObserver(entries => {
-      // Pick the section with the largest intersection ratio currently in view.
       const visible = entries.filter(e => e.isIntersecting);
       if (!visible.length) return;
       visible.sort((a,b) => b.intersectionRatio - a.intersectionRatio);
       const top = visible[0].target;
       links.forEach(a => a.classList.toggle('active', map.get(top) === a));
-    }, { rootMargin: '-25% 0px -55% 0px', threshold: [0, .15, .3, .5] });
+    }, { rootMargin: '-15% 0px -65% 0px', threshold: [0, .1, .3, .6] });
     map.forEach((_, sec) => navIo.observe(sec));
   })();
 
