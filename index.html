@@ -917,6 +917,362 @@
   }
   .copy-check{color:var(--on-accent)}
 
+  /* ─── Figma-style Design System frame ─── */
+  .demo-system{
+    grid-column:1 / -1;
+    background:#1e1e1e;color:#e6e6e6;border-color:transparent;
+    padding:0;min-height:auto;overflow:hidden;
+    margin-top:14px;
+  }
+  .figma-bar{
+    display:flex;align-items:center;gap:14px;
+    background:#2c2c2c;border-bottom:1px solid #3a3a3a;
+    padding:10px 14px;font-family:var(--mono);font-size:11px;color:#9a9a9a;
+  }
+  .fb-left{display:flex;gap:6px}
+  .fb-dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .fb-dot.r{background:#ff5f57}
+  .fb-dot.y{background:#febc2e}
+  .fb-dot.g{background:#28c840}
+  .fb-tabs{display:flex;gap:2px;margin-left:8px}
+  .fb-tab{
+    padding:4px 12px;border-radius:5px;font-size:10.5px;
+    color:#7a7a7a;background:transparent;letter-spacing:.02em;
+  }
+  .fb-tab.active{background:#1e1e1e;color:#e6e6e6}
+  .fb-right{margin-left:auto;display:flex;gap:6px}
+  .fb-pill{
+    padding:4px 9px;border-radius:5px;background:#3a3a3a;color:#d0d0d0;
+    font-size:10.5px;border:0;cursor:pointer;font-family:inherit;
+    transition:background .2s ease;
+  }
+  button.fb-pill:hover{background:#4a4a4a}
+  .fb-pill.primary{background:var(--accent);color:var(--on-accent);font-weight:500;border:0;cursor:pointer;font-family:inherit;transition:opacity .2s ease}
+  .fb-pill.primary:hover{opacity:.85}
+  .fb-pill.primary.copied{background:#28c840}
+
+  .figma-canvas{
+    background:#1e1e1e;
+    padding:48px 36px 36px;position:relative;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1);
+    transform-origin:top left;
+  }
+  .frame-tag{
+    position:absolute;top:18px;left:36px;
+    font-family:var(--mono);font-size:10px;color:var(--accent);
+    text-transform:uppercase;letter-spacing:.14em;
+  }
+  .ds-head{
+    display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:end;
+    padding:8px 0 32px;border-bottom:1px solid #2e2e2e;margin-bottom:32px;
+  }
+  @media (max-width:760px){.ds-head{grid-template-columns:1fr;gap:20px}}
+  .demo-system .demo-tag{color:#9a9a9a}
+  .demo-system .demo-tag .dot{background:var(--accent)}
+  .demo-system .demo-title{font-family:var(--serif);font-weight:400;font-size:42px;line-height:1;letter-spacing:-.02em;color:#e6e6e6;margin-top:8px}
+  .demo-system .demo-title em{font-style:italic;color:var(--accent)}
+  .demo-system .demo-sub{font-size:14px;line-height:1.5;color:#a8a8a8;max-width:50ch;margin-top:6px}
+  .ds-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .ds-stat{padding:14px;background:#2a2a2a;border-radius:8px;border:1px solid #3a3a3a}
+  .ds-stat .v{font-family:var(--serif);font-size:32px;line-height:1;color:#e6e6e6;letter-spacing:-.02em}
+  .ds-stat .k{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;color:#8a8a8a;margin-top:6px}
+
+  .ds-section{margin-bottom:32px}
+  .ds-section:last-child{margin-bottom:0}
+  .ds-section-h{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;
+    color:#a8a8a8;padding-bottom:10px;margin-bottom:16px;
+    border-bottom:1px solid #2e2e2e;
+  }
+  .ds-section-h span:first-child{color:#e6e6e6}
+  .ds-section-meta{color:#8a8a8a}
+
+  /* Color tokens */
+  .token-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media (max-width:760px){.token-grid{grid-template-columns:repeat(2,1fr)}}
+  .token{
+    background:#2a2a2a;border:1px solid #3a3a3a;border-radius:8px;
+    overflow:hidden;display:flex;flex-direction:column;
+  }
+  .token .sw{height:60px}
+  .token .sw.paper{background:#f4f4f1}
+  .token .sw.bg2{background:#eaeae6}
+  .token .sw.line{background:#d9d9d4}
+  .token .sw.ink2{background:#6b6b68}
+  .token .sw.ink{background:#0c0c0d}
+  .token .sw.accent{background:oklch(0.6 0.15 158)}
+  .token .sw.accent2{background:oklch(0.78 0.12 158)}
+  .token .sw.deep{background:#0a1d12}
+  .token .tk{padding:8px 10px}
+  .token .n{font-family:var(--mono);font-size:11px;color:#e6e6e6;font-weight:500}
+  .token .c{font-family:var(--mono);font-size:9.5px;color:#8a8a8a;margin-top:2px}
+
+  /* Type list */
+  .type-list{display:flex;flex-direction:column;gap:8px}
+  .type-row{
+    display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;
+    padding:14px 16px;background:#2a2a2a;border:1px solid #3a3a3a;border-radius:8px;
+  }
+  .type-sample{color:#e6e6e6;min-width:0}
+  .type-sample em{font-style:italic;color:var(--accent)}
+  .type-meta{
+    display:flex;flex-direction:column;gap:2px;text-align:right;
+    font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;
+  }
+  .type-meta span:first-child{color:#a8a8a8}
+  .type-meta span:last-child{color:#7a7a7a;font-size:9.5px}
+  @media (max-width:760px){
+    .type-row{grid-template-columns:1fr;gap:8px}
+    .type-meta{text-align:left;flex-direction:row;gap:12px}
+  }
+
+  /* Components */
+  .comp-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media (max-width:760px){.comp-row{grid-template-columns:repeat(2,1fr)}}
+  .comp-card{
+    background:#2a2a2a;border:1px solid #3a3a3a;border-radius:8px;padding:18px 16px;
+    display:flex;flex-direction:column;gap:12px;min-height:120px;
+  }
+  .comp-label{
+    font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;
+    color:#8a8a8a;
+  }
+  .sample-btn{
+    align-self:flex-start;background:var(--accent);color:var(--on-accent);
+    font-family:var(--mono);font-size:11px;font-weight:500;
+    text-transform:uppercase;letter-spacing:.12em;
+    border:0;padding:10px 14px;border-radius:6px;cursor:default;
+  }
+  .sample-tags{display:flex;flex-wrap:wrap;gap:5px}
+  .s-tag{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
+    padding:4px 8px;border:1px solid #3a3a3a;border-radius:4px;color:#d0d0d0;
+  }
+  .sample-status{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:11px;color:#e6e6e6;letter-spacing:.04em;
+  }
+  .ls-dot{
+    width:7px;height:7px;border-radius:50%;background:var(--accent);
+    position:relative;flex-shrink:0;
+  }
+  .ls-dot::after{
+    content:"";position:absolute;inset:-3px;border-radius:50%;
+    background:var(--accent);opacity:.4;animation:brand-pulse 1.8s ease-out infinite;
+  }
+  .sample-mark{
+    display:inline-flex;align-items:center;gap:1px;background:#1e1e1e;
+    padding:8px 12px;border-radius:6px;border:1px solid #3a3a3a;
+    align-self:flex-start;
+  }
+  .sample-mark .sm-b{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent)}
+  .sample-mark .sm-ml{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1;letter-spacing:-.04em;color:#e6e6e6;padding:0 2px}
+  .sample-mark .sm-l{color:var(--accent);margin-left:-3px}
+
+  /* ─── Wireframes panel ─── */
+  .fb-tab{border:0;cursor:pointer;font-family:inherit}
+  .fb-tab:hover:not(.active){color:#bababa;background:rgba(255,255,255,.04)}
+
+  .wire-stack{display:flex;flex-direction:column;gap:14px}
+  .wire{
+    background:#2a2a2a;border:1px solid #3a3a3a;border-radius:6px;
+    padding:18px 22px;position:relative;
+  }
+  .wire::before{
+    content:attr(data-label);
+    position:absolute;top:-9px;left:14px;
+    background:#1e1e1e;color:var(--accent);
+    font-family:var(--mono);font-size:9.5px;
+    text-transform:uppercase;letter-spacing:.16em;
+    padding:2px 8px;border-radius:3px;border:1px solid #3a3a3a;
+  }
+  .wire.wire-thin{padding:10px 22px}
+  .wire-row{display:flex;align-items:center;gap:12px}
+
+  .dash{
+    height:11px;border-radius:3px;background:#3e3e3e;flex-shrink:0;
+  }
+  .dash.sm{height:7px;width:60px}
+  .dash.big{height:18px;width:140px}
+  .dash.huge{height:44px;width:80px;background:#4a4a4a;border-radius:5px}
+  .dash.dim{background:#363636}
+  .dash.n{width:24px;height:9px}
+  .dash.long{width:140px;height:8px}
+  .dash{width:80px}
+
+  .wb-mark{width:40px;height:28px;background:#3e3e3e;border-radius:4px}
+  .wb-links{display:flex;gap:10px}
+  .wb-cta{width:80px;height:28px;background:#4a4a4a;border-radius:4px}
+
+  /* Bento wireframe (hero) */
+  .wire-bento{
+    display:grid;grid-template-columns:repeat(12,1fr);
+    grid-auto-rows:minmax(70px,auto);gap:8px;
+    background:#252525;padding:22px;
+  }
+  .wire-bento > div{
+    background:#2e2e2e;border:1px dashed #404040;border-radius:6px;
+    padding:14px;position:relative;display:flex;flex-direction:column;gap:6px;
+  }
+  .wire-mini-label{
+    position:absolute;bottom:6px;right:8px;
+    font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.14em;
+    color:#7a7a7a;opacity:.85;
+  }
+  .wb-name{grid-column:span 7;grid-row:span 2;background:#34403a !important;border-color:#4a5a4f !important}
+  .wb-photo{grid-column:span 3;grid-row:span 2;justify-content:center;align-items:center}
+  .img-cross{
+    width:100%;aspect-ratio:1;max-width:100px;
+    background:
+      linear-gradient(to top right, transparent calc(50% - 1px), #5a5a5a 50%, transparent calc(50% + 1px)),
+      linear-gradient(to top left,  transparent calc(50% - 1px), #5a5a5a 50%, transparent calc(50% + 1px)),
+      #3a3a3a;
+    border-radius:4px;
+  }
+  .wb-exp{grid-column:span 2;grid-row:span 1}
+  .wb-bio{grid-column:span 7;grid-row:span 1}
+  .wb-stack{grid-column:span 3;grid-row:span 1}
+  .wb-cta-big{grid-column:span 2;grid-row:span 1;background:#222 !important;border-color:#4a4a4a !important;justify-content:flex-end}
+
+  .title-block{
+    height:80px;border-radius:4px;
+    background:repeating-linear-gradient(90deg,#4a4a4a 0,#4a4a4a 60%,transparent 60%,transparent 100%),
+               repeating-linear-gradient(180deg,#4a4a4a 0,#4a4a4a 10px,transparent 10px,transparent 24px);
+    background-blend-mode:multiply;
+    margin:6px 0;
+  }
+  .chips{display:flex;gap:5px;margin-top:6px}
+  .chip-w{width:34px;height:14px;background:#4a4a4a;border-radius:99px;opacity:.6}
+  .lines{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+  .tags-w{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+  .tags-w > div{width:34px;height:10px;background:#3e3e3e;border-radius:3px}
+  .circle-w{width:22px;height:22px;border-radius:50%;background:#5a8a6c;align-self:flex-end;margin-top:6px}
+
+  /* About wire */
+  .wb-card{
+    background:#2e2e2e;border:1px dashed #404040;border-radius:6px;padding:18px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .wb-stats-grid{
+    display:grid;grid-template-rows:1fr 1fr;gap:8px;
+  }
+  .wb-stat{
+    background:#34403a;border:1px dashed #4a5a4f;border-radius:6px;min-height:80px;
+  }
+  .wb-stat:nth-child(2){background:#2a2a2a;border-color:#404040}
+
+  /* Work wire */
+  .work-wire{display:flex;flex-direction:column}
+  .work-wire-row{
+    display:grid;grid-template-columns:32px 1fr 120px 24px;
+    align-items:center;gap:16px;
+    padding:14px 0;border-bottom:1px dashed #3a3a3a;
+  }
+  .work-wire-row:last-child{border-bottom:0}
+  .dot-w{
+    width:18px;height:18px;border-radius:50%;
+    border:1px dashed #4a4a4a;
+  }
+
+  /* Skills wire */
+  .skills-wire{
+    display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:90px;gap:8px;
+  }
+  .sw-cell{
+    background:#2e2e2e;border:1px dashed #404040;border-radius:6px;padding:12px;
+    display:flex;flex-direction:column;gap:6px;
+    grid-column:span 3;
+  }
+  .sw-cell.big{grid-column:span 6;grid-row:span 2;background:#252525}
+  .sw-cell.wide{grid-column:span 6}
+
+  /* Contact wire */
+  .contact-wire{
+    display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:80px;gap:8px;
+  }
+  .contact-wire > div{
+    background:#2e2e2e;border:1px dashed #404040;border-radius:6px;padding:14px;
+    display:flex;flex-direction:column;gap:6px;justify-content:flex-end;
+  }
+  .cw-big{grid-column:span 8;grid-row:span 2;background:#252525}
+  .cw-pill{width:140px;height:24px;background:#4a8a6a;border-radius:99px;margin-top:4px}
+  .cw-facts{grid-column:span 4;grid-row:span 2;background:#2a2a2a}
+  .cw-row{height:10px;background:#3e3e3e;border-radius:3px}
+  .cw-social{grid-column:span 4}
+
+  @media (max-width:760px){
+    .wire-bento{grid-template-columns:repeat(2,1fr)}
+    .wire-bento > div{grid-column:span 2 !important;grid-row:auto !important;min-height:80px}
+    .skills-wire{grid-template-columns:repeat(2,1fr)}
+    .sw-cell, .sw-cell.big, .sw-cell.wide{grid-column:span 2;grid-row:auto}
+    .contact-wire{grid-template-columns:repeat(2,1fr)}
+    .contact-wire > div{grid-column:span 2 !important;grid-row:auto !important}
+    .work-wire-row{grid-template-columns:24px 1fr 24px;gap:10px}
+    .work-wire-row > .dash.dim{display:none}
+  }
+
+  /* ─── Case Study panel ─── */
+  .case-stack{display:flex;flex-direction:column;gap:24px}
+  .cs-row{
+    display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start;
+    padding:18px 0;border-bottom:1px solid #2e2e2e;
+  }
+  .cs-row:last-child{border-bottom:0}
+  .cs-num{
+    font-family:var(--serif);font-size:48px;line-height:.95;letter-spacing:-.03em;
+    color:var(--accent);font-style:italic;
+  }
+  .cs-h{
+    font-family:var(--serif);font-size:24px;line-height:1.1;letter-spacing:-.01em;
+    color:#e6e6e6;margin-bottom:10px;
+  }
+  .cs-body p, .cs-body li{
+    font-size:14.5px;line-height:1.55;color:#bababa;max-width:62ch;
+  }
+  .cs-body p em, .cs-body li em{font-style:italic;color:#e6e6e6}
+  .cs-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .cs-pill{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    padding:6px 10px;border-radius:99px;
+    background:#2a2a2a;border:1px solid #3a3a3a;color:#d0d0d0;
+  }
+  .cs-decisions{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:4px}
+  @media (max-width:760px){.cs-decisions{grid-template-columns:1fr}}
+  .cs-dec{
+    background:#2a2a2a;border:1px solid #3a3a3a;border-radius:8px;padding:14px 16px;
+  }
+  .cs-dec-h{
+    font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--accent);margin-bottom:6px;
+  }
+  .cs-dec p{font-size:13.5px;color:#bababa;line-height:1.5}
+  .cs-checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 16px;margin-top:4px}
+  @media (max-width:760px){.cs-checklist{grid-template-columns:1fr}}
+  .cs-check{
+    font-size:13.5px;color:#bababa;padding-left:22px;position:relative;line-height:1.45;
+  }
+  .cs-check::before{
+    content:"";position:absolute;left:0;top:5px;width:13px;height:13px;
+    border-radius:3px;background:var(--accent);
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a1d12' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12l5 5L20 7'/></svg>");
+    background-size:11px 11px;background-position:center;background-repeat:no-repeat;
+  }
+  .cs-kbd{
+    display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;
+    padding:1px 6px;border-radius:3px;background:#2a2a2a;border:1px solid #3a3a3a;color:#e6e6e6;
+    margin:0 2px;vertical-align:1px;
+  }
+  .cs-list{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+  .cs-list li{position:relative;list-style:none;padding-left:14px}
+  .cs-list li::before{
+    content:"→";position:absolute;left:-4px;top:0;color:var(--accent);font-family:var(--mono);
+  }
+  @media (max-width:760px){
+    .cs-row{grid-template-columns:1fr;gap:8px}
+    .cs-num{font-size:36px}
+  }
+
   /* ─── Doggo Select (rebuilt) ─── */
   .demo-doggo{background:var(--accent);color:var(--on-accent);border-color:transparent}
   .demo-doggo .demo-tag{color:rgba(10,29,18,.65)}
@@ -1121,10 +1477,10 @@
     </a>
     <div class="navlinks">
       <a href="#about"><span class="n">01</span>About</a>
-      <a href="#showcase"><span class="n">+</span>Showcase</a>
       <a href="#work"><span class="n">02</span>Work</a>
-      <a href="#skills"><span class="n">03</span>Skills</a>
-      <a href="#contact"><span class="n">04</span>Contact</a>
+      <a href="#showcase"><span class="n">03</span>Showcase</a>
+      <a href="#skills"><span class="n">04</span>Skills</a>
+      <a href="#contact"><span class="n">05</span>Contact</a>
     </div>
     <div class="nav-right">
       <button class="theme-btn" id="theme" aria-label="Toggle theme">
@@ -1319,11 +1675,22 @@
   </div>
 </section>
 
+<section class="section work" id="work">
+  <div class="wrap">
+    <div class="section-band">
+      <div class="num">02 — Work</div>
+      <h2 class="ttl">Selected <em>projects</em></h2>
+      <div class="meta">Live client sites + studies</div>
+    </div>
+    <div class="work-list" id="worklist"></div>
+  </div>
+</section>
+
 <!-- CASE STUDY + LIVE DEMOS -->
 <section class="section showcase" id="showcase">
   <div class="wrap">
     <div class="section-band">
-      <div class="num">+ — Showcase</div>
+      <div class="num">03 — Showcase</div>
       <h2 class="ttl">Case study + <em>live demos</em></h2>
       <div class="meta">Proof, not promises</div>
     </div>
@@ -1460,18 +1827,381 @@
       </div>
 
     </div>
-  </div>
-</section>
 
-<!-- WORK -->
-<section class="section work" id="work">
-  <div class="wrap">
-    <div class="section-band">
-      <div class="num">02 — Work</div>
-      <h2 class="ttl">Selected <em>projects</em></h2>
-      <div class="meta">Live client sites + studies</div>
+    <!-- DESIGN SYSTEM (Figma-style frame) -->
+    <div class="demo-tile demo-system reveal">
+      <div class="figma-bar">
+        <div class="fb-left">
+          <span class="fb-dot r"></span>
+          <span class="fb-dot y"></span>
+          <span class="fb-dot g"></span>
+        </div>
+        <div class="fb-tabs" id="fb-tabs">
+          <button class="fb-tab active" data-panel="design">Martti Leppmets — Portfolio.fig</button>
+          <button class="fb-tab" data-panel="wires">Wireframes</button>
+          <button class="fb-tab" data-panel="case">Case Study</button>
+        </div>
+        <div class="fb-right">
+          <button class="fb-pill" id="fb-zoom" type="button">100% +</button>
+          <button class="fb-pill primary" id="fb-share" type="button">↗ Share</button>
+        </div>
+      </div>
+
+      <!-- DESIGN SYSTEM PANEL -->
+      <div class="figma-canvas" data-panel="design">
+        <div class="frame-tag">Frame · Design System / 01</div>
+
+        <div class="ds-head">
+          <div>
+            <div class="demo-tag"><span class="dot"></span>System · token-driven</div>
+            <div class="demo-title">Design <em>System</em></div>
+            <div class="demo-sub">The full token sheet behind this page — color, type, spacing, and components. Every visual decision lives in one place.</div>
+          </div>
+          <div class="ds-stats">
+            <div class="ds-stat"><div class="v">12</div><div class="k">Tokens</div></div>
+            <div class="ds-stat"><div class="v">8</div><div class="k">Type styles</div></div>
+            <div class="ds-stat"><div class="v">6</div><div class="k">Components</div></div>
+          </div>
+        </div>
+
+        <!-- Color tokens -->
+        <div class="ds-section">
+          <div class="ds-section-h">
+            <span>01 — Color</span>
+            <span class="ds-section-meta">OKLCH · light + dark</span>
+          </div>
+          <div class="token-grid">
+            <div class="token"><div class="sw paper"></div><div class="tk"><div class="n">paper</div><div class="c">#F4F4F1</div></div></div>
+            <div class="token"><div class="sw bg2"></div><div class="tk"><div class="n">paper-2</div><div class="c">#EAEAE6</div></div></div>
+            <div class="token"><div class="sw line"></div><div class="tk"><div class="n">line</div><div class="c">#D9D9D4</div></div></div>
+            <div class="token"><div class="sw ink2"></div><div class="tk"><div class="n">ink-soft</div><div class="c">#6B6B68</div></div></div>
+            <div class="token"><div class="sw ink"></div><div class="tk"><div class="n">ink</div><div class="c">#0C0C0D</div></div></div>
+            <div class="token"><div class="sw accent"></div><div class="tk"><div class="n">accent</div><div class="c">oklch(0.6 0.15 158)</div></div></div>
+            <div class="token"><div class="sw accent2"></div><div class="tk"><div class="n">accent-2</div><div class="c">oklch(0.78 0.12 158)</div></div></div>
+            <div class="token"><div class="sw deep"></div><div class="tk"><div class="n">on-accent</div><div class="c">#0A1D12</div></div></div>
+          </div>
+        </div>
+
+        <!-- Type scale -->
+        <div class="ds-section">
+          <div class="ds-section-h">
+            <span>02 — Typography</span>
+            <span class="ds-section-meta">Instrument Serif · Geist · JetBrains Mono</span>
+          </div>
+          <div class="type-list">
+            <div class="type-row">
+              <div class="type-sample" style="font-family:var(--serif);font-style:italic;font-size:64px;line-height:.95;letter-spacing:-.03em">Display</div>
+              <div class="type-meta"><span>Serif Italic</span><span>64 / .95 / -.03em</span></div>
+            </div>
+            <div class="type-row">
+              <div class="type-sample" style="font-family:var(--serif);font-size:38px;line-height:1;letter-spacing:-.02em">Heading</div>
+              <div class="type-meta"><span>Serif Regular</span><span>38 / 1.0 / -.02em</span></div>
+            </div>
+            <div class="type-row">
+              <div class="type-sample" style="font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.3">Lead — italic.</div>
+              <div class="type-meta"><span>Serif Italic</span><span>22 / 1.3</span></div>
+            </div>
+            <div class="type-row">
+              <div class="type-sample" style="font-size:15px;line-height:1.55">Body — Geist sans-serif sets the pace for paragraph content.</div>
+              <div class="type-meta"><span>Sans 400</span><span>15 / 1.55</span></div>
+            </div>
+            <div class="type-row">
+              <div class="type-sample" style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em">LABEL · CAPTION · TAG</div>
+              <div class="type-meta"><span>Mono 500</span><span>11 / .16em</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Components -->
+        <div class="ds-section">
+          <div class="ds-section-h">
+            <span>03 — Components</span>
+            <span class="ds-section-meta">Atomic · reusable</span>
+          </div>
+          <div class="comp-row">
+            <div class="comp-card">
+              <div class="comp-label">Button · primary</div>
+              <button class="sample-btn">Get started</button>
+            </div>
+            <div class="comp-card">
+              <div class="comp-label">Tag · pill</div>
+              <div class="sample-tags"><span class="s-tag">WordPress</span><span class="s-tag">React</span></div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-label">Status · live</div>
+              <div class="sample-status"><span class="ls-dot"></span>Open to roles</div>
+            </div>
+            <div class="comp-card">
+              <div class="comp-label">Mark · logo</div>
+              <div class="sample-mark"><span class="sm-b">&lt;</span><span class="sm-ml">M<span class="sm-l">L</span></span><span class="sm-b">/&gt;</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- WIREFRAMES PANEL -->
+      <div class="figma-canvas" data-panel="wires" hidden>
+        <div class="frame-tag">Frame · Wireframes / 02</div>
+
+        <div class="ds-head">
+          <div>
+            <div class="demo-tag"><span class="dot"></span>Wireframes · low-fi structure</div>
+            <div class="demo-title">Page <em>blueprint</em></div>
+            <div class="demo-sub">The same site you're viewing — as a layout grid. This is what the design started as before color and type came in.</div>
+          </div>
+          <div class="ds-stats">
+            <div class="ds-stat"><div class="v">6</div><div class="k">Sections</div></div>
+            <div class="ds-stat"><div class="v">12</div><div class="k">Grid cols</div></div>
+            <div class="ds-stat"><div class="v">9</div><div class="k">Bento cells</div></div>
+          </div>
+        </div>
+
+        <div class="wire-stack">
+
+          <!-- NAV WIRE -->
+          <div class="wire" data-label="Nav · 64h">
+            <div class="wire-row" style="justify-content:space-between">
+              <div class="wb wb-mark"></div>
+              <div class="wb wb-links">
+                <div class="dash sm"></div><div class="dash sm"></div><div class="dash sm"></div><div class="dash sm"></div>
+              </div>
+              <div class="wb wb-cta"></div>
+            </div>
+          </div>
+
+          <!-- STATUS WIRE -->
+          <div class="wire wire-thin" data-label="Status · 36h">
+            <div class="wire-row" style="gap:18px">
+              <div class="dash"></div><div class="dash long"></div><div class="dash long"></div>
+            </div>
+          </div>
+
+          <!-- HERO BENTO WIRE -->
+          <div class="wire wire-bento" data-label="Hero · bento (12 cols)">
+            <div class="wb-name">
+              <div class="dash big" style="width:30%"></div>
+              <div class="title-block"></div>
+              <div class="dash sm" style="width:40%;margin-top:14px"></div>
+              <div class="chips">
+                <div class="chip-w"></div><div class="chip-w"></div><div class="chip-w"></div><div class="chip-w"></div>
+              </div>
+              <span class="wire-mini-label">Name + chips · 7 cols</span>
+            </div>
+            <div class="wb-photo">
+              <div class="img-cross"></div>
+              <span class="wire-mini-label">Portrait · 3 cols</span>
+            </div>
+            <div class="wb-exp">
+              <div class="dash huge"></div>
+              <div class="dash sm" style="width:80%"></div>
+              <span class="wire-mini-label">Stat · 2 cols</span>
+            </div>
+            <div class="wb-bio">
+              <div class="dash sm" style="width:25%"></div>
+              <div class="lines">
+                <div class="dash" style="width:90%"></div>
+                <div class="dash" style="width:78%"></div>
+                <div class="dash" style="width:60%"></div>
+              </div>
+              <span class="wire-mini-label">Bio · 7 cols</span>
+            </div>
+            <div class="wb-stack">
+              <div class="dash sm" style="width:40%"></div>
+              <div class="tags-w"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+              <span class="wire-mini-label">Stack · 3 cols</span>
+            </div>
+            <div class="wb-cta-big">
+              <div class="dash sm" style="width:55%"></div>
+              <div class="dash big" style="width:80%;margin-top:8px"></div>
+              <div class="circle-w"></div>
+              <span class="wire-mini-label">CTA · 2 cols</span>
+            </div>
+          </div>
+
+          <!-- ABOUT WIRE -->
+          <div class="wire" data-label="About · split (2 cols)">
+            <div class="wire-row" style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px;align-items:stretch">
+              <div class="wb-card">
+                <div class="dash big" style="width:80%"></div>
+                <div class="lines">
+                  <div class="dash" style="width:92%"></div>
+                  <div class="dash" style="width:84%"></div>
+                  <div class="dash" style="width:75%"></div>
+                  <div class="dash" style="width:60%"></div>
+                </div>
+              </div>
+              <div class="wb-stats-grid">
+                <div class="wb-stat"></div>
+                <div class="wb-stat"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WORK WIRE -->
+          <div class="wire" data-label="Work · table list">
+            <div class="work-wire">
+              <div class="work-wire-row"><div class="dash sm n"></div><div class="dash big"></div><div class="dash sm dim"></div><div class="dot-w"></div></div>
+              <div class="work-wire-row"><div class="dash sm n"></div><div class="dash big"></div><div class="dash sm dim"></div><div class="dot-w"></div></div>
+              <div class="work-wire-row"><div class="dash sm n"></div><div class="dash big"></div><div class="dash sm dim"></div><div class="dot-w"></div></div>
+              <div class="work-wire-row"><div class="dash sm n"></div><div class="dash big"></div><div class="dash sm dim"></div><div class="dot-w"></div></div>
+            </div>
+          </div>
+
+          <!-- SKILLS WIRE -->
+          <div class="wire" data-label="Skills · bento (4 cells)">
+            <div class="skills-wire">
+              <div class="sw-cell big">
+                <div class="dash sm" style="width:30%"></div>
+                <div class="lines">
+                  <div class="dash" style="width:80%"></div>
+                  <div class="dash" style="width:75%"></div>
+                  <div class="dash" style="width:70%"></div>
+                </div>
+              </div>
+              <div class="sw-cell">
+                <div class="dash big" style="width:60%"></div>
+                <div class="dash sm" style="width:80%;margin-top:8px"></div>
+              </div>
+              <div class="sw-cell">
+                <div class="dash big" style="width:60%"></div>
+                <div class="tags-w"><div></div><div></div></div>
+              </div>
+              <div class="sw-cell wide">
+                <div class="lines">
+                  <div class="dash" style="width:80%"></div>
+                  <div class="dash" style="width:65%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTACT WIRE -->
+          <div class="wire wire-contact" data-label="Contact · bento">
+            <div class="contact-wire">
+              <div class="cw-big">
+                <div class="dash huge" style="width:60%"></div>
+                <div class="dash big" style="width:45%"></div>
+                <div class="cw-pill"></div>
+              </div>
+              <div class="cw-facts">
+                <div class="cw-row"></div><div class="cw-row"></div><div class="cw-row"></div>
+              </div>
+              <div class="cw-social"></div>
+              <div class="cw-social"></div>
+              <div class="cw-social"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CASE STUDY PANEL -->
+      <div class="figma-canvas" data-panel="case" hidden>
+        <div class="frame-tag">Frame · Case Study / 03</div>
+
+        <div class="ds-head">
+          <div>
+            <div class="demo-tag"><span class="dot"></span>Case study · this page</div>
+            <div class="demo-title">Designing my <em>own portfolio</em>.</div>
+            <div class="demo-sub">How this site came together — the brief, the constraints, the decisions, and what I'd do differently next time.</div>
+          </div>
+          <div class="ds-stats">
+            <div class="ds-stat"><div class="v">3h</div><div class="k">Wireframes</div></div>
+            <div class="ds-stat"><div class="v">12h</div><div class="k">Build</div></div>
+            <div class="ds-stat"><div class="v">100%</div><div class="k">Hand-coded</div></div>
+          </div>
+        </div>
+
+        <div class="case-stack">
+
+          <!-- PROBLEM -->
+          <div class="cs-row">
+            <div class="cs-num">01</div>
+            <div class="cs-body">
+              <div class="cs-h">The problem</div>
+              <p>Dev portfolios mostly look the same: a CV in HTML, list of skills with progress bars, "contact me" form. Recruiters skim and forget. I needed something they'd <em>remember</em> — and that proved I can build, not just describe.</p>
+            </div>
+          </div>
+
+          <!-- GOALS -->
+          <div class="cs-row">
+            <div class="cs-num">02</div>
+            <div class="cs-body">
+              <div class="cs-h">Goals & constraints</div>
+              <div class="cs-pills">
+                <span class="cs-pill">Memorable type system</span>
+                <span class="cs-pill">Editorial, not template-y</span>
+                <span class="cs-pill">Proof &gt; promises (live demos)</span>
+                <span class="cs-pill">Recruiter-scannable in 20s</span>
+                <span class="cs-pill">Mobile + dark mode from day one</span>
+                <span class="cs-pill">Zero frameworks · hand-coded</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DECISIONS -->
+          <div class="cs-row">
+            <div class="cs-num">03</div>
+            <div class="cs-body">
+              <div class="cs-h">Design decisions</div>
+              <div class="cs-decisions">
+                <div class="cs-dec">
+                  <div class="cs-dec-h">Instrument Serif · italic</div>
+                  <p>For display type. Signals editorial taste, not "another dev portfolio." Paired with Geist sans for body and JetBrains Mono for labels.</p>
+                </div>
+                <div class="cs-dec">
+                  <div class="cs-dec-h">Emerald, not corporate blue</div>
+                  <p>One bold accent in OKLCH. Distinct from the typical Tailwind-default palette every other dev portfolio uses.</p>
+                </div>
+                <div class="cs-dec">
+                  <div class="cs-dec-h">Bento layout</div>
+                  <p>Modular tiles instead of long scroll. Scans well, allows visual hierarchy without forcing a single reading order.</p>
+                </div>
+                <div class="cs-dec">
+                  <div class="cs-dec-h">Live demos, not screenshots</div>
+                  <p>Color Studio + Doggo Select are both <em>working</em>. Recruiters interact instead of read — instant proof.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WHAT I SHIPPED -->
+          <div class="cs-row">
+            <div class="cs-num">04</div>
+            <div class="cs-body">
+              <div class="cs-h">What's in production</div>
+              <div class="cs-checklist">
+                <div class="cs-check">Bento hero · responsive 12-col grid</div>
+                <div class="cs-check">Live status strip with rotating role typewriter</div>
+                <div class="cs-check">Featured case study (RaeKoss) with live mShots preview</div>
+                <div class="cs-check">Two interactive demos — pure vanilla JS</div>
+                <div class="cs-check">Figma-style design system + wireframes (this frame)</div>
+                <div class="cs-check">Light + dark theme · OKLCH color system</div>
+                <div class="cs-check">Command palette (press <span class="cs-kbd">/</span>)</div>
+                <div class="cs-check">Open Graph + JSON-LD for rich previews</div>
+                <div class="cs-check">A4 print-ready CV in the same system</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAKEAWAYS -->
+          <div class="cs-row">
+            <div class="cs-num">05</div>
+            <div class="cs-body">
+              <div class="cs-h">Takeaways</div>
+              <ul class="cs-list">
+                <li>Editorial typography wins attention faster than gradients ever will.</li>
+                <li>One interactive demo beats five static screenshots.</li>
+                <li>Design systems aren't just for big teams — they keep solo work consistent and fast to iterate.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-    <div class="work-list" id="worklist"></div>
   </div>
 </section>
 
@@ -1484,7 +2214,7 @@
 <section class="section skills" id="skills">
   <div class="wrap">
     <div class="section-band">
-      <div class="num">03 — Skills</div>
+      <div class="num">04 — Skills</div>
       <h2 class="ttl">What I <em>bring</em></h2>
       <div class="meta">Stack · Craft · Strengths</div>
     </div>
@@ -1536,7 +2266,7 @@
   <div class="watermark">hire</div>
   <div class="wrap" style="position:relative">
     <div class="section-band">
-      <div class="num">04 — Contact</div>
+      <div class="num">05 — Contact</div>
       <h2 class="ttl">Get in <em>touch</em></h2>
       <div class="meta">Tallinn · Replies same week</div>
     </div>
@@ -1909,6 +2639,50 @@
     loadBreeds();
   })();
 
+  // ───── Figma tab toggle (Design System / Wireframes) ─────
+  (function(){
+    const tabs = document.querySelectorAll('#fb-tabs .fb-tab');
+    const panels = document.querySelectorAll('.demo-system .figma-canvas[data-panel]');
+    if (!tabs.length) return;
+    tabs.forEach(t => t.addEventListener('click', () => {
+      const target = t.dataset.panel;
+      tabs.forEach(x => x.classList.toggle('active', x === t));
+      panels.forEach(p => p.hidden = (p.dataset.panel !== target));
+    }));
+
+    // Share button — copies deep link to showcase
+    const share = document.getElementById('fb-share');
+    if (share){
+      share.addEventListener('click', async () => {
+        const url = window.location.origin + window.location.pathname + '#showcase';
+        try {
+          await navigator.clipboard.writeText(url);
+          const orig = share.textContent;
+          share.textContent = '✓ Link copied';
+          share.classList.add('copied');
+          setTimeout(() => { share.textContent = orig; share.classList.remove('copied'); }, 1800);
+        } catch(e){ console.warn(e); }
+      });
+    }
+
+    // Zoom button — cycles through 100 → 125 → 150 → 75 → 100
+    const zoom = document.getElementById('fb-zoom');
+    const zooms = [1, 1.25, 1.5, 0.75];
+    let zi = 0;
+    if (zoom){
+      zoom.addEventListener('click', () => {
+        zi = (zi + 1) % zooms.length;
+        const v = zooms[zi];
+        panels.forEach(p => {
+          p.style.transform = `scale(${v})`;
+          p.style.width = (100 / v) + '%';
+          p.style.transformOrigin = 'top left';
+        });
+        zoom.textContent = Math.round(v * 100) + '% ' + (zi === 0 ? '+' : '↺');
+      });
+    }
+  })();
+
   // ───── reveal ─────
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
@@ -1979,8 +2753,9 @@
   const cmdItems = [
     {group:'Navigate', label:'About me', hint:'01', ico:'§', href:'#about'},
     {group:'Navigate', label:'Selected work', hint:'02', ico:'§', href:'#work'},
-    {group:'Navigate', label:'Skills & stack', hint:'03', ico:'§', href:'#skills'},
-    {group:'Navigate', label:'Contact', hint:'04', ico:'§', href:'#contact'},
+    {group:'Navigate', label:'Showcase', hint:'03', ico:'§', href:'#showcase'},
+    {group:'Navigate', label:'Skills & stack', hint:'04', ico:'§', href:'#skills'},
+    {group:'Navigate', label:'Contact', hint:'05', ico:'§', href:'#contact'},
     {group:'Actions', label:'Download résumé (PDF)', hint:'↗', ico:'↓', href:'https://marttile.github.io/assets/files/MarttiWD-2026.pdf', external:true},
     {group:'Actions', label:'Email Martti', hint:'mail', ico:'@', mail:true},
     {group:'Actions', label:'Toggle dark mode', hint:'theme', ico:'☾', toggle:true},
