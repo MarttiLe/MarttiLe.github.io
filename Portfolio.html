@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Martti Leppmets — Front-End Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg: #f5f1ea;
+    --bg-2: #ece6dc;
+    --ink: #1a1714;
+    --ink-2: #5a544c;
+    --line: #d9d1c3;
+    --accent: oklch(0.62 0.16 38);  /* warm terracotta */
+    --accent-soft: oklch(0.62 0.16 38 / 0.12);
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  [data-theme="dark"]{
+    --bg: #14110e;
+    --bg-2: #1f1a16;
+    --ink: #f1ece2;
+    --ink-2: #a39c91;
+    --line: #2c2620;
+    --accent: oklch(0.72 0.14 42);
+    --accent-soft: oklch(0.72 0.14 42 / 0.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    transition:background .4s ease, color .4s ease;
+  }
+  ::selection{background:var(--accent);color:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  /* ───── chrome ───── */
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+  @media (max-width:720px){.wrap{padding:0 24px}}
+
+  nav.top{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:saturate(1.4) blur(14px);
+    -webkit-backdrop-filter:saturate(1.4) blur(14px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+  nav.top.scrolled{border-color:var(--line)}
+  nav.top .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:12px;
+    font-family:var(--serif);
+    font-size:22px;letter-spacing:.01em;
+  }
+  .brand .dot{
+    width:10px;height:10px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 4px var(--accent-soft);
+  }
+  .navlinks{display:flex;gap:36px;font-size:14px}
+  .navlinks a{
+    color:var(--ink-2);position:relative;
+    transition:color .2s ease;
+  }
+  .navlinks a:hover{color:var(--ink)}
+  .navlinks a::after{
+    content:"";position:absolute;left:0;bottom:-6px;
+    width:0;height:1px;background:var(--ink);
+    transition:width .25s ease;
+  }
+  .navlinks a:hover::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:20px}
+  .availability{
+    display:flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:11px;
+    color:var(--ink-2);text-transform:uppercase;letter-spacing:.08em;
+  }
+  .availability .pulse{
+    width:7px;height:7px;border-radius:50%;background:#3aa363;
+    position:relative;
+  }
+  .availability .pulse::after{
+    content:"";position:absolute;inset:-4px;border-radius:50%;
+    background:#3aa363;opacity:.35;animation:pulse 1.8s ease-out infinite;
+  }
+  @keyframes pulse{0%{transform:scale(.6);opacity:.5}100%{transform:scale(2.2);opacity:0}}
+  .theme-btn{
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--line);background:transparent;
+    cursor:pointer;color:var(--ink);
+    display:grid;place-items:center;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .theme-btn:hover{background:var(--bg-2);transform:rotate(-15deg)}
+  .menu-btn{display:none}
+  @media (max-width:720px){
+    .navlinks,.availability{display:none}
+  }
+
+  /* ───── hero ───── */
+  section.hero{padding:80px 0 120px;position:relative;overflow:hidden}
+  .hero-grid{
+    display:grid;grid-template-columns:1.4fr 1fr;gap:64px;
+    align-items:end;
+  }
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:48px}}
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;
+    text-transform:uppercase;letter-spacing:.18em;
+    color:var(--ink-2);display:flex;align-items:center;gap:12px;
+    margin-bottom:32px;
+  }
+  .eyebrow::before{
+    content:"";width:32px;height:1px;background:var(--ink-2);
+  }
+  h1.title{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(56px, 9.5vw, 148px);
+    line-height:.92;letter-spacing:-.02em;
+    margin-bottom:8px;
+  }
+  h1.title em{
+    font-style:italic;color:var(--accent);
+    font-feature-settings:"ss01";
+  }
+  .role{
+    font-family:var(--mono);font-size:13px;
+    color:var(--ink-2);margin-top:36px;
+    display:flex;flex-wrap:wrap;gap:8px 18px;
+  }
+  .role span{display:inline-flex;align-items:center;gap:8px}
+  .role .sep{color:var(--line)}
+
+  .hero-side{display:flex;flex-direction:column;gap:32px}
+  .hero-photo{
+    aspect-ratio:4/5;
+    background:var(--bg-2) url("https://marttile.github.io/assets/images/1.jpg") center/cover;
+    border-radius:4px;position:relative;overflow:hidden;
+    box-shadow: 0 1px 0 var(--line), 0 30px 60px -30px rgba(20,15,10,.25);
+  }
+  .hero-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 60%, rgba(0,0,0,.15));
+  }
+  .photo-tag{
+    position:absolute;left:16px;bottom:16px;
+    font-family:var(--mono);font-size:10px;
+    color:#fff;letter-spacing:.12em;text-transform:uppercase;
+    background:rgba(0,0,0,.4);padding:6px 10px;border-radius:2px;
+    backdrop-filter:blur(4px);
+  }
+  .blurb{
+    font-family:var(--serif);font-style:italic;
+    font-size:22px;line-height:1.35;color:var(--ink);
+    max-width:38ch;
+  }
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 22px;border-radius:999px;
+    font-size:14px;font-weight:500;
+    cursor:pointer;border:1px solid transparent;
+    transition:all .2s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--bg)}
+  .btn-primary:hover{background:var(--accent);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);background:var(--bg-2)}
+  .btn svg{width:14px;height:14px}
+
+  /* marquee */
+  .marquee{
+    margin-top:96px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;
+  }
+  .marquee-track{
+    display:inline-flex;gap:48px;padding:18px 0;
+    animation:scroll 40s linear infinite;
+    font-family:var(--serif);font-size:28px;font-style:italic;
+    color:var(--ink-2);
+  }
+  .marquee-track span{display:inline-flex;align-items:center;gap:48px}
+  .marquee-track .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ───── section header ───── */
+  .sec-head{
+    display:grid;grid-template-columns:120px 1fr auto;
+    align-items:baseline;gap:24px;
+    margin-bottom:64px;padding-top:24px;
+    border-top:1px solid var(--line);
+  }
+  .sec-num{
+    font-family:var(--mono);font-size:11px;color:var(--ink-2);
+    letter-spacing:.18em;text-transform:uppercase;padding-top:8px;
+  }
+  .sec-title{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(36px, 5vw, 64px);
+    line-height:1;letter-spacing:-.01em;
+  }
+  .sec-title em{font-style:italic;color:var(--accent)}
+  .sec-meta{
+    font-family:var(--mono);font-size:11px;color:var(--ink-2);
+    text-transform:uppercase;letter-spacing:.12em;
+  }
+  @media (max-width:720px){.sec-head{grid-template-columns:1fr;gap:8px}.sec-meta{display:none}}
+
+  section.block{padding:48px 0}
+
+  /* ───── about ───── */
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  }
+  @media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:48px}}
+  .about-text p{
+    font-size:18px;line-height:1.6;color:var(--ink);
+    margin-bottom:20px;max-width:52ch;
+  }
+  .about-text p.lead{
+    font-family:var(--serif);font-size:30px;line-height:1.3;
+    margin-bottom:32px;letter-spacing:-.01em;
+  }
+  .about-text p.lead em{font-style:italic;color:var(--accent)}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .fact{background:var(--bg);padding:24px 22px}
+  .fact .k{
+    font-family:var(--mono);font-size:10px;
+    text-transform:uppercase;letter-spacing:.14em;color:var(--ink-2);
+    margin-bottom:10px;
+  }
+  .fact .v{
+    font-family:var(--serif);font-size:24px;letter-spacing:-.01em;line-height:1.15;
+  }
+  .fact .v small{font-family:var(--mono);font-size:11px;color:var(--ink-2);display:block;margin-top:4px;letter-spacing:.04em}
+
+  /* ───── work ───── */
+  .work-list{display:flex;flex-direction:column}
+  .work-item{
+    display:grid;grid-template-columns:80px 1fr 1.2fr 200px 24px;
+    align-items:center;gap:32px;
+    padding:28px 0;border-top:1px solid var(--line);
+    cursor:pointer;position:relative;
+    transition:padding .3s ease;
+  }
+  .work-item:last-child{border-bottom:1px solid var(--line)}
+  .work-item:hover{padding-left:16px;padding-right:16px}
+  .work-item:hover .arrow{transform:translateX(4px)}
+  .work-item:hover .w-title{color:var(--accent)}
+  .work-num{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+  .w-title{
+    font-family:var(--serif);font-size:36px;line-height:1;letter-spacing:-.01em;
+    transition:color .3s ease;
+  }
+  .w-desc{font-size:14px;color:var(--ink-2);line-height:1.5;max-width:46ch}
+  .w-meta{
+    font-family:var(--mono);font-size:11px;color:var(--ink-2);
+    text-transform:uppercase;letter-spacing:.1em;
+    display:flex;flex-direction:column;gap:4px;text-align:right;
+  }
+  .w-meta .stack{color:var(--ink)}
+  .arrow{
+    width:28px;height:28px;border-radius:50%;border:1px solid var(--line);
+    display:grid;place-items:center;transition:transform .3s ease,background .3s ease,color .3s ease;
+  }
+  .work-item:hover .arrow{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+  .arrow svg{width:11px;height:11px}
+  @media (max-width:900px){
+    .work-item{grid-template-columns:auto 1fr auto;gap:16px}
+    .w-desc,.w-meta{display:none}
+    .w-title{font-size:24px}
+  }
+
+  /* preview floater */
+  .preview{
+    position:fixed;pointer-events:none;
+    width:340px;aspect-ratio:4/3;
+    border-radius:6px;overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(20,15,10,.4);
+    opacity:0;transform:scale(.95) translate(-50%,-50%);
+    transition:opacity .25s ease, transform .25s ease;
+    z-index:60;background:var(--bg-2);
+    transform-origin:center;
+  }
+  .preview.on{opacity:1;transform:scale(1) translate(-50%,-50%)}
+  .preview-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+  .preview::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 60%, rgba(0,0,0,.35));
+  }
+  .preview-cap{
+    position:absolute;left:14px;bottom:12px;color:#fff;
+    font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;z-index:2;
+  }
+  @media (max-width:900px){.preview{display:none}}
+
+  /* ───── skills ───── */
+  .skills-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+  @media (max-width:900px){.skills-wrap{grid-template-columns:1fr;gap:40px}}
+  .skill-group h4{
+    font-family:var(--mono);font-size:11px;
+    text-transform:uppercase;letter-spacing:.14em;color:var(--ink-2);
+    margin-bottom:24px;font-weight:400;
+  }
+  .skill-list{display:flex;flex-direction:column;gap:2px}
+  .skill-row{
+    display:grid;grid-template-columns:1fr auto;
+    align-items:center;gap:24px;
+    padding:14px 0;border-bottom:1px solid var(--line);
+    font-size:18px;
+  }
+  .skill-row .lvl{
+    display:flex;gap:4px;
+  }
+  .skill-row .lvl i{
+    width:8px;height:8px;border-radius:50%;
+    border:1px solid var(--ink-2);background:transparent;
+    display:inline-block;
+  }
+  .skill-row .lvl i.on{background:var(--accent);border-color:var(--accent)}
+
+  /* ───── contact ───── */
+  section.contact{
+    background:var(--ink);color:var(--bg);
+    margin-top:80px;
+    padding:120px 0 60px;
+    position:relative;overflow:hidden;
+  }
+  section.contact .sec-head{border-color:rgba(255,255,255,.15)}
+  section.contact .sec-num,
+  section.contact .sec-meta{color:rgba(245,241,234,.5)}
+  .contact-grid{
+    display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:end;
+  }
+  @media (max-width:900px){.contact-grid{grid-template-columns:1fr;gap:48px}}
+  .contact-h{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(56px, 8vw, 128px);
+    line-height:.95;letter-spacing:-.02em;
+  }
+  .contact-h em{font-style:italic;color:var(--accent)}
+  .contact-mail{
+    display:inline-flex;align-items:center;gap:14px;
+    margin-top:40px;font-family:var(--serif);font-size:28px;
+    border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:8px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .contact-mail:hover{color:var(--accent);border-color:var(--accent)}
+  .contact-mail svg{width:18px;height:18px}
+  .contact-side .label{
+    font-family:var(--mono);font-size:11px;
+    text-transform:uppercase;letter-spacing:.14em;
+    color:rgba(245,241,234,.5);margin-bottom:16px;
+  }
+  .socials{display:flex;flex-direction:column;gap:2px;margin-bottom:32px}
+  .socials a{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12);
+    font-size:18px;
+    transition:padding .25s ease, color .25s ease;
+  }
+  .socials a:hover{padding-left:8px;color:var(--accent)}
+  .socials a span{font-family:var(--mono);font-size:11px;color:rgba(245,241,234,.5);text-transform:uppercase;letter-spacing:.1em}
+  .footer{
+    margin-top:96px;padding-top:24px;
+    border-top:1px solid rgba(255,255,255,.12);
+    display:flex;justify-content:space-between;
+    font-family:var(--mono);font-size:11px;
+    color:rgba(245,241,234,.5);text-transform:uppercase;letter-spacing:.1em;
+  }
+  @media (max-width:720px){.footer{flex-direction:column;gap:12px}}
+
+  /* big watermark behind contact */
+  .watermark{
+    position:absolute;left:0;right:0;bottom:-30px;
+    text-align:center;font-family:var(--serif);font-style:italic;
+    font-size:clamp(120px, 22vw, 360px);
+    line-height:1;color:rgba(245,241,234,.04);
+    pointer-events:none;user-select:none;letter-spacing:-.04em;
+  }
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body data-screen-label="01 Portfolio">
+
+<nav class="top" id="topnav">
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="dot"></span> Martti Leppmets</a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="availability"><span class="pulse"></span> Open to work</div>
+      <button class="theme-btn" id="theme" aria-label="Toggle theme">
+        <svg id="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Portfolio · 2026 / Tallinn, EE</div>
+        <h1 class="title reveal in">
+          Front-end<br/>
+          developer<br/>
+          building <em>thoughtful</em><br/>
+          interfaces.
+        </h1>
+        <div class="role">
+          <span>Martti Leppmets</span>
+          <span class="sep">/</span>
+          <span>Front-End Developer</span>
+          <span class="sep">/</span>
+          <span>Aspiring PM</span>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="hero-photo" role="img" aria-label="Portrait of Martti">
+          <span class="photo-tag">001 — Tallinn</span>
+        </div>
+        <p class="blurb">A passionate front-end developer with a knack for turning ideas into immersive digital experiences — built on a love for visually appealing, user-friendly interfaces.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://marttile.github.io/assets/files/MarttiWD-2026.pdf" target="_blank" rel="noopener">
+            Download résumé
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#work">
+            Selected work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>WordPress<span class="dot"></span>React<span class="dot"></span>JavaScript<span class="dot"></span>UI / UX<span class="dot"></span>Responsive<span class="dot"></span>PHP / ACF<span class="dot"></span>Figma<span class="dot"></span>Performance<span class="dot"></span></span>
+        <span>WordPress<span class="dot"></span>React<span class="dot"></span>JavaScript<span class="dot"></span>UI / UX<span class="dot"></span>Responsive<span class="dot"></span>PHP / ACF<span class="dot"></span>Figma<span class="dot"></span>Performance<span class="dot"></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">01 — About</div>
+      <h2 class="sec-title">A short <em>introduction</em></h2>
+      <div class="sec-meta">Tallinn · Estonia</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="lead">I specialize in transforming creative concepts into visually stunning and <em>user-friendly</em> interfaces.</p>
+        <p>Driven by a commitment to excellence, I pursued independent studies on Treehouse, honing my skills in web development. I've completed two bootcamps — one focused on front-end, the other on JavaScript — further solidifying my expertise.</p>
+        <p>Outside the realm of coding, you'll find me capturing moments through the lens of photography, enjoying a football match, or cruising on a skateboard. Let's blend creativity with code to bring your vision to life.</p>
+      </div>
+      <div class="facts reveal">
+        <div class="fact"><div class="k">Based in</div><div class="v">Tallinn<small>Estonia, EU</small></div></div>
+        <div class="fact"><div class="k">Focus</div><div class="v">Front-end<small>+ aspiring PM</small></div></div>
+        <div class="fact"><div class="k">Stack</div><div class="v">JS · React<small>WordPress · ACF</small></div></div>
+        <div class="fact"><div class="k">Status</div><div class="v">Available<small>for new projects</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Work -->
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">02 — Work</div>
+      <h2 class="sec-title">Selected <em>projects</em></h2>
+      <div class="sec-meta">6 case studies</div>
+    </div>
+
+    <div class="work-list" id="worklist">
+      <!-- rows injected -->
+    </div>
+  </div>
+</section>
+
+<div class="preview" id="preview">
+  <div class="preview-bg" id="preview-bg"></div>
+  <div class="preview-cap" id="preview-cap"></div>
+</div>
+
+<!-- Skills -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">03 — Skills</div>
+      <h2 class="sec-title">What I <em>do</em></h2>
+      <div class="sec-meta">Tools of the trade</div>
+    </div>
+
+    <div class="skills-wrap">
+      <div class="skill-group">
+        <h4>Engineering</h4>
+        <div class="skill-list">
+          <div class="skill-row"><span>HTML5 · CSS3 · Sass</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <div class="skill-row"><span>JavaScript (ES6+)</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill-row"><span>React · Vue</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill-row"><span>WordPress · PHP · ACF</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill-row"><span>Git · Webpack · npm</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Craft</h4>
+        <div class="skill-list">
+          <div class="skill-row"><span>Responsive design</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <div class="skill-row"><span>UI / UX principles</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill-row"><span>Figma · prototyping</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill-row"><span>Performance · a11y</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill-row"><span>Client communication</span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="watermark">hello</div>
+  <div class="wrap" style="position:relative">
+    <div class="sec-head">
+      <div class="sec-num">04 — Contact</div>
+      <h2 class="sec-title" style="color:var(--bg)">Get in <em>touch</em></h2>
+      <div class="sec-meta">Reply within 24h</div>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <h3 class="contact-h">Let's build<br/>something <em>good</em>.</h3>
+        <a class="contact-mail" href="/cdn-cgi/l/email-protection#e28f839096968b8e8792928f879691a2858f838b8ecc818d8f">
+          <span class="__cf_email__" data-cfemail="224f435056564b4e4752524f47565162454f434b4e0c414d4f">[email&#160;protected]</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+      <div class="contact-side">
+        <div class="label">Elsewhere</div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/martti-leppmets-818968205/" target="_blank" rel="noopener">LinkedIn <span>↗ /martti-leppmets</span></a>
+          <a href="https://www.instagram.com/marttiga" target="_blank" rel="noopener">Instagram <span>↗ @marttiga</span></a>
+          <a href="https://marttile.github.io/" target="_blank" rel="noopener">GitHub Pages <span>↗ marttile</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>© 2026 Martti Leppmets</span>
+      <span>Designed & built with care · Tallinn, EE</span>
+    </div>
+  </div>
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Project data
+  // Live screenshots via WordPress mShots (free, no key)
+  const shot = (u) => `https://s.wordpress.com/mshots/v1/${encodeURIComponent(u)}?w=900&h=675`;
+  const projects = [
+    {n:"01", title:"Asan Imza", desc:"My first WordPress build — learned ACF, PHP and dynamic content so the client could manage pages with ease.", role:"Solo build · 2023", stack:"WordPress · ACF · PHP", url:"https://asanimza.az/", img:shot("https://asanimza.az/")},
+    {n:"02", title:"Femmes Digitales", desc:"Owned the mobile views and built the AWITA sub-page from scratch. Direct client communication; lots of iteration.", role:"Mobile + sub-page · 2023", stack:"WordPress · Elementor", url:"https://femmesdigitales.az/", img:shot("https://femmesdigitales.az/")},
+    {n:"03", title:"RaeKoss", desc:"My first end-to-end project from design — PHP solutions wiring API data into an immersive front-end.", role:"Design → ship · 2024", stack:"WordPress · Elementor · API", url:"https://raekoss.ee/", img:shot("https://raekoss.ee/")},
+    {n:"04", title:"Connect Four", desc:"Classic Connect Four reimagined as a snappy browser game with vanilla JavaScript.", role:"Side project", stack:"JavaScript · Canvas", url:"https://marttile.github.io/project/connect4/index.html", img:shot("https://marttile.github.io/project/connect4/index.html")},
+    {n:"05", title:"Doggo Select", desc:"Fetch-API playground — pulls dog breeds and previews on demand. A study in async UX.", role:"Side project", stack:"JavaScript · Fetch API", url:"https://marttile.github.io/project/doggoselect/index.html", img:shot("https://marttile.github.io/project/doggoselect/index.html")},
+    {n:"06", title:"Sign-up Form", desc:"A polished newsletter signup demonstrating form patterns, validation, and accessible inputs.", role:"Component study", stack:"HTML · CSS · JS", url:"https://marttile.github.io/project/OnReg/index.html", img:shot("https://marttile.github.io/project/OnReg/index.html")},
+  ];
+
+  // Pre-warm the screenshots so they're cached by the time someone hovers
+  projects.forEach(p=>{ const i=new Image(); i.src=p.img; });
+
+  const list = document.getElementById('worklist');
+  projects.forEach(p=>{
+    const a = document.createElement('a');
+    a.className = 'work-item';
+    a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+    a.dataset.img = p.img; a.dataset.cap = p.title;
+    a.innerHTML = `
+      <div class="work-num">${p.n}</div>
+      <div class="w-title">${p.title}</div>
+      <div class="w-desc">${p.desc}</div>
+      <div class="w-meta"><span>${p.role}</span><span class="stack">${p.stack}</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
+    `;
+    list.appendChild(a);
+  });
+
+  // floating preview
+  const prev = document.getElementById('preview');
+  const prevBg = document.getElementById('preview-bg');
+  const prevCap = document.getElementById('preview-cap');
+  document.querySelectorAll('.work-item').forEach(item=>{
+    item.addEventListener('mouseenter', e=>{
+      prevBg.style.backgroundImage = `url(${item.dataset.img})`;
+      prevCap.textContent = item.dataset.cap;
+      prev.classList.add('on');
+    });
+    item.addEventListener('mouseleave', ()=>prev.classList.remove('on'));
+    item.addEventListener('mousemove', e=>{
+      prev.style.left = e.clientX + 'px';
+      prev.style.top = e.clientY + 'px';
+    });
+  });
+
+  // sticky nav border
+  const nav = document.getElementById('topnav');
+  window.addEventListener('scroll', ()=>{
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // theme toggle
+  const themeBtn = document.getElementById('theme');
+  const root = document.documentElement;
+  const stored = localStorage.getItem('ml-theme');
+  if(stored) root.dataset.theme = stored;
+  themeBtn.addEventListener('click', ()=>{
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('ml-theme', next);
+  });
+
+  // reveal on scroll
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
