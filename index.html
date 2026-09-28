@@ -20,9 +20,9 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Martti Leppmets","jobTitle":"Front-End Developer","url":"https://marttile.github.io/","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"sameAs":["https://www.linkedin.com/in/martti-leppmets-818968205/"],"worksFor":{"@type":"Organization","name":"OlyBet"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
-:root{color-scheme:dark;--bg:#121211;--ink:#ecece8;--muted:#8f8f8a;--line:#272725;--soft:#1b1b1a;--accent:oklch(0.72 0.15 158);--serif:"Instrument Serif",Georgia,serif;--sans:"Geist",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+:root{color-scheme:dark;--bg:#121211;--ink:#ecece8;--muted:#8f8f8a;--line:#272725;--soft:#1b1b1a;--accent:oklch(0.72 0.15 158);--serif:"Instrument Serif",Georgia,serif;--sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
@@ -48,7 +48,8 @@ nav a:hover{color:var(--ink)}
 section{padding:72px 0;border-top:1px solid var(--line);scroll-margin-top:60px}
 .row{display:grid;grid-template-columns:180px minmax(0,1fr);gap:32px}
 .label{font:400 11px/1.9 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
-@media (max-width:760px){.row{grid-template-columns:1fr;gap:16px}section{padding:56px 0}}
+@media (max-width:760px){.row{grid-template-columns:minmax(0,1fr);gap:16px}section{padding:56px 0}}
+@media (max-width:520px){.demo{padding:18px}select.field{min-width:0}.controls .btn{flex-shrink:0}.hex{width:96px;flex:1}.swatches{gap:6px}.intro{padding:56px 0 48px}}
 
 .intro{border-top:0;padding:88px 0 72px}
 .intro .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px 48px;align-items:start}
