@@ -110,9 +110,11 @@ h2 em{color:var(--acc)}
 footer{font-size:12px;opacity:.7;margin-top:80px}
 
 
+/* paper */
+.paper{position:fixed;inset:0;z-index:29;pointer-events:none;opacity:.5;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .02' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1.4 -.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.04 .6' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");box-shadow:inset 0 0 180px rgba(0,0,0,.28)}
 /* grain */
-.grain{position:fixed;inset:-50%;z-index:30;pointer-events:none;opacity:.09;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
-body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opacity:.06}
+.grain{position:fixed;inset:-50%;z-index:30;pointer-events:none;opacity:.2;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
+body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opacity:.14}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
 /* cursor */
 .cur{position:fixed;left:0;top:0;width:10px;height:10px;border-radius:50%;background:var(--fg);z-index:40;pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .6s,opacity .3s;opacity:0;mix-blend-mode:difference}
@@ -121,13 +123,14 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
 @media (hover:hover) and (pointer:fine){body.has-cur,body.has-cur a,body.has-cur button,body.has-cur select{cursor:none}}
 @media (hover:none){.cur{display:none}}
 /* intro */
-.intro{position:fixed;inset:0;z-index:60;background:#3d5236;overflow:hidden;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.65,0,.35,1),opacity .7s ease 1.5s}
-.intro-in{position:absolute;left:22px;top:0;transform-origin:0 0;transition:transform 1.6s cubic-bezier(.65,0,.35,1)}
-.intro-in div{font:400 100px/.9 var(--serif);white-space:nowrap;color:#c3ceab}
-.intro-in div:nth-child(even){font-style:italic;color:transparent;-webkit-text-stroke:1.6px #c3ceab}
-.intro.go{clip-path:inset(0 0 0 70%);opacity:0}
-.intro.go .intro-in{transform:translateX(calc(100vw - var(--col))) scale(var(--s,.3))}
-@media (max-width:860px){.intro.go{clip-path:inset(66px 0 calc(100% - 130px) 0)}.intro.go .intro-in{transform:translateY(66px) scale(.35)}}
+.intro{position:fixed;inset:0;z-index:60;background:var(--moss);overflow:hidden;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.65,0,.35,1)}
+.intro-in{position:absolute;transform-origin:0 0;transition:transform 1.6s cubic-bezier(.65,0,.35,1)}
+.intro-in.row{display:flex;gap:22px}
+.intro-in div{font-family:var(--serif);font-weight:400;white-space:nowrap;color:var(--sage)}
+.intro-in div:nth-child(even){font-style:italic;color:transparent;-webkit-text-stroke:1.4px var(--sage);transition:-webkit-text-stroke-width 1.6s cubic-bezier(.65,0,.35,1)}
+.intro.go .intro-in{transform:none!important}
+.intro.go .intro-in div:nth-child(even){-webkit-text-stroke-width:1.4px!important}
+.intro.fade{opacity:0;transition:opacity .35s}
 .intro.gone{display:none}
 
 @media (max-width:1000px){
@@ -139,8 +142,8 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
   .bar{padding:16px 22px}
   .wn{display:none}
   .bar{right:0}
-  .names{left:0;right:0;width:auto;top:65px;bottom:auto;height:64px;border-left:0;background:var(--bg);z-index:9}
-  .reel{left:0;right:auto;top:0px;display:flex;gap:22px}
+  .names{left:0;right:0;width:auto;top:66px;bottom:auto;height:64px;border-left:0;background:var(--bg);z-index:9}
+  .reel{left:0;right:auto;top:6px;display:flex;gap:22px}
   .reel div{font-size:54px;line-height:1}
   main{padding:0 22px}
   section{min-height:auto;padding:80px 0 60px;max-width:none}
@@ -189,7 +192,7 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
     <div class="about">
       <div>
         <h1 data-i18n="h1">Front&#8209;end developer.</h1>
-        <p data-i18n="intro">Based in Tallinn. I build WordPress and JavaScript websites that clients can manage on their own. Currently Junior Webmaster at OlyBet.</p>
+        <p data-i18n="intro">Based in Tallinn. I build WordPress and JavaScript websites that clients can manage on their own, and I’ve worked across iGaming, fintech and agency teams. Currently Junior Webmaster at OlyBet.</p>
       </div>
       <div class="ph"><div class="photo" role="img" aria-label="Portrait of Martti Leppmets"></div></div>
     </div>
@@ -200,7 +203,7 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
     <div class="work"><ul class="list" id="list"></ul><div><a class="view" id="view" href="#" target="_blank" rel="noopener" aria-label="Open project"></a><div class="view-cap"><span id="vt"></span><span id="vy"></span></div></div></div>
   </section>
 
-  <section id="experience" data-t="birch">
+  <section id="experience" data-t="bark">
     <h2 data-i18n="nExp">Experience</h2>
     <div class="xp">
       <div class="row"><div class="when">2025 —</div><div><div class="role" data-i18n="r1">Junior Webmaster</div><div class="co">OlyBet · Tallinn</div></div></div>
@@ -234,6 +237,7 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
 </main>
 
 <div class="intro" id="intro" aria-hidden="true"><div class="intro-in" id="introIn"></div></div></div>
+<div class="paper" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="cur" id="cur" aria-hidden="true"></div>
 
@@ -241,13 +245,13 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
 (function(){
   // language
   const L={en:{nAbout:'About',nWork:'Work',nExp:'Experience',nKit:'Toolkit',nContact:'Contact',cv:'Résumé',h1:'Front‑end developer.',
-    intro:'Based in Tallinn. I build WordPress and JavaScript websites that clients can manage on their own. Currently Junior Webmaster at OlyBet.',
+    intro:'Based in Tallinn. I build WordPress and JavaScript websites that clients can manage on their own, and I’ve worked across iGaming, fintech and agency teams. Currently Junior Webmaster at OlyBet.',
     side:'Side project',study:'Study',d1:'Solo build from Figma to launch. Custom PHP brings live API data into Elementor through ACF, so the client edits every page on their own.',
     r1:'Junior Webmaster',r2:'Web Development & Administration Manager',r3:'Junior Web Developer',r4:'Courses',c2:'smeGo · Tallinn, hybrid',
     k1:'Build',k2:'Platforms',k3:'Design & growth',phone:'Phone',else:'Elsewhere',based:'Based in',city:'Tallinn, Estonia',langs:'Languages',langsV:'Estonian, English, some Finnish',
     cType:'Type',cCol:'Colour',cColV:'Moss, birch and bark',cMade:'Made',cMadeV:'By hand in Tallinn. Plain HTML, CSS and JavaScript, no framework.'},
    et:{nAbout:'Minust',nWork:'Tööd',nExp:'Kogemus',nKit:'Tööriistad',nContact:'Kontakt',cv:'CV',h1:'Front‑end arendaja.',
-    intro:'Asun Tallinnas. Teen WordPressi ja JavaScripti veebilehti, mida kliendid saavad ise hallata. Praegu töötan OlyBetis nooremveebihaldurina.',
+    intro:'Asun Tallinnas. Teen WordPressi ja JavaScripti veebilehti, mida kliendid saavad ise hallata, ning olen töötanud iGamingu, finantstehnoloogia ja agentuuri valdkonnas. Praegu töötan OlyBetis nooremveebihaldurina.',
     side:'Kõrvalprojekt',study:'Õppeprojekt',d1:'Tegin üksi, Figma kavandist avaldamiseni. Oma PHP-kood toob API andmed ACF-i kaudu Elementori mallidesse, nii et klient haldab kõiki lehti ise.',
     r1:'Nooremveebihaldur',r2:'Veebiarenduse ja -halduse juht',r3:'Noorem veebiarendaja',r4:'Kursused',c2:'smeGo · Tallinn, hübriidtöö',
     k1:'Arendus',k2:'Platvormid',k3:'Disain ja kasv',phone:'Telefon',else:'Mujal',based:'Asukoht',city:'Tallinn, Eesti',langs:'Keeled',langsV:'eesti, inglise, veidi soome',
@@ -260,18 +264,37 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
     const vy=document.getElementById('vy');if(vy&&vy.dataset.y&&!/^\d/.test(vy.dataset.y))vy.textContent=T(vy.dataset.y);
   }
 
-  // intro: the name column fills the screen, then shrinks into its place on the right
+  // intro: an enlarged copy of the name column, which shrinks onto the real one
   const intro=document.getElementById('intro'),introIn=document.getElementById('introIn');
-  if(matchMedia('(prefers-reduced-motion:reduce)').matches){intro.classList.add('gone');}
-  else{
-    const fill=()=>{introIn.innerHTML='';const p=document.createElement('div');p.textContent='Leppmets';p.style.fontStyle='italic';p.style.display='inline-block';introIn.appendChild(p);
-      const fs=100*(innerWidth-44)/p.getBoundingClientRect().width;introIn.innerHTML='';
-      const n=Math.ceil(innerHeight/(fs*.9))+2;
-      for(let k=0;k<n;k++){const d=document.createElement('div');d.textContent=k%2?'Leppmets':'Martti';d.style.fontSize=fs+'px';d.style.height=fs*.9+'px';introIn.appendChild(d);}
-      const col=document.querySelector('.names').clientWidth;intro.style.setProperty('--s',Math.max(.2,(col-44)/(innerWidth-44)));};
-    fill();(document.fonts?document.fonts.ready:Promise.resolve()).then(fill);
-    let started=false;const go=()=>{if(started)return;started=true;intro.classList.add('go');setTimeout(()=>intro.classList.add('gone'),2400);};
-    addEventListener('load',()=>setTimeout(go,800));setTimeout(go,4000);
+  const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduced)intro.classList.add('gone');
+  function introSetup(){
+    const rl=document.getElementById('reel'),bx=document.querySelector('.names');
+    if(!rl||!rl.children.length)return false;
+    const mob=innerWidth<=860,r=rl.getBoundingClientRect(),b=bx.getBoundingClientRect();
+    introIn.className='intro-in'+(mob?' row':'');
+    introIn.innerHTML=rl.innerHTML;
+    [...introIn.children].forEach((d,i)=>{const o=rl.children[i],cs=getComputedStyle(o);d.style.cssText=o.style.cssText;d.style.fontSize=cs.fontSize;d.style.lineHeight=cs.lineHeight;d.style.height=cs.height;d.style.transform=cs.transform==='none'?'':cs.transform;});
+    introIn.style.transition='none';[...introIn.children].forEach(d=>d.style.transition='none');
+    introIn.style.left=r.left+'px';introIn.style.top=r.top+'px';introIn.style.width=mob?'auto':r.width+'px';
+    // start: scaled up, pinned to the left edge; end: exactly where the column sits
+    const k=mob?3.2:(innerWidth-44)/(b.width-44);
+    const tx=(mob?16:22)-r.left, ty=(mob?innerHeight*.3:0)-r.top;
+    introIn.style.transform='translate('+tx+'px,'+ty+'px) scale('+k+')';
+    [...introIn.children].forEach((d,i)=>{if(i%2)d.style.webkitTextStrokeWidth=(1.4/k)+'px';});
+    void introIn.offsetWidth;introIn.style.transition='';[...introIn.children].forEach(d=>d.style.transition='');
+    intro.style.clipPath='inset(0 0 0 0)';
+    intro.dataset.clip=mob?'inset('+b.top+'px 0 '+(innerHeight-b.bottom)+'px 0)':'inset(0 0 0 '+b.left+'px)';
+    return true;
+  }
+  if(!reduced){
+    let started=false;
+    const go=()=>{if(started)return;if(!introSetup()){setTimeout(go,100);return;}started=true;
+      void intro.offsetWidth;
+      requestAnimationFrame(()=>{intro.classList.add('go');intro.style.clipPath=intro.dataset.clip;});
+      setTimeout(()=>intro.classList.add('fade'),1650);setTimeout(()=>intro.classList.add('gone'),2050);};
+    (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>setTimeout(()=>{introSetup();},60));
+    addEventListener('load',()=>setTimeout(go,900));setTimeout(go,4000);
   }
 
   const addr='marttileppmets'+String.fromCharCode(64)+'gmail.com';
