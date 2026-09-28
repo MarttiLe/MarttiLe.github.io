@@ -121,12 +121,13 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
 @media (hover:hover) and (pointer:fine){body.has-cur,body.has-cur a,body.has-cur button,body.has-cur select{cursor:none}}
 @media (hover:none){.cur{display:none}}
 /* intro */
-.intro{position:fixed;inset:0;z-index:60;background:#3d5236;display:flex;align-items:center;justify-content:center;clip-path:inset(0 0 0 0);transition:clip-path 1s cubic-bezier(.7,0,.2,1),opacity .4s .9s}
-.intro-in{font:400 clamp(80px,17vw,300px)/.9 var(--serif);color:#c3ceab;text-align:center;transition:transform 1s cubic-bezier(.7,0,.2,1),opacity .5s}
-.intro-in .o{font-style:italic;color:transparent;-webkit-text-stroke:2px #c3ceab}
+.intro{position:fixed;inset:0;z-index:60;background:#3d5236;overflow:hidden;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.65,0,.35,1),opacity .7s ease 1.5s}
+.intro-in{position:absolute;left:22px;top:0;transform-origin:0 0;transition:transform 1.6s cubic-bezier(.65,0,.35,1)}
+.intro-in div{font:400 100px/.9 var(--serif);white-space:nowrap;color:#c3ceab}
+.intro-in div:nth-child(even){font-style:italic;color:transparent;-webkit-text-stroke:1.6px #c3ceab}
 .intro.go{clip-path:inset(0 0 0 70%);opacity:0}
-.intro.go .intro-in{transform:translateX(30vw) scale(.5);opacity:0}
-@media (max-width:860px){.intro.go{clip-path:inset(0 0 100% 0)}.intro.go .intro-in{transform:translateY(-20vh) scale(.6)}}
+.intro.go .intro-in{transform:translateX(calc(100vw - var(--col))) scale(var(--s,.3))}
+@media (max-width:860px){.intro.go{clip-path:inset(66px 0 calc(100% - 130px) 0)}.intro.go .intro-in{transform:translateY(66px) scale(.35)}}
 .intro.gone{display:none}
 
 @media (max-width:1000px){
@@ -232,7 +233,7 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
   </section>
 </main>
 
-<div class="intro" id="intro" aria-hidden="true"><div class="intro-in"><div>Martti</div><div class="o">Leppmets</div></div></div>
+<div class="intro" id="intro" aria-hidden="true"><div class="intro-in" id="introIn"></div></div></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="cur" id="cur" aria-hidden="true"></div>
 
@@ -259,10 +260,19 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
     const vy=document.getElementById('vy');if(vy&&vy.dataset.y&&!/^\d/.test(vy.dataset.y))vy.textContent=T(vy.dataset.y);
   }
 
-  // intro, once per visit
-  const intro=document.getElementById('intro');
-  if(sessionStorage.getItem('ml-intro')||matchMedia('(prefers-reduced-motion:reduce)').matches){intro.classList.add('gone');}
-  else{sessionStorage.setItem('ml-intro','1');setTimeout(()=>intro.classList.add('go'),900);setTimeout(()=>intro.classList.add('gone'),2200);}
+  // intro: the name column fills the screen, then shrinks into its place on the right
+  const intro=document.getElementById('intro'),introIn=document.getElementById('introIn');
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){intro.classList.add('gone');}
+  else{
+    const fill=()=>{introIn.innerHTML='';const p=document.createElement('div');p.textContent='Leppmets';p.style.fontStyle='italic';p.style.display='inline-block';introIn.appendChild(p);
+      const fs=100*(innerWidth-44)/p.getBoundingClientRect().width;introIn.innerHTML='';
+      const n=Math.ceil(innerHeight/(fs*.9))+2;
+      for(let k=0;k<n;k++){const d=document.createElement('div');d.textContent=k%2?'Leppmets':'Martti';d.style.fontSize=fs+'px';d.style.height=fs*.9+'px';introIn.appendChild(d);}
+      const col=document.querySelector('.names').clientWidth;intro.style.setProperty('--s',Math.max(.2,(col-44)/(innerWidth-44)));};
+    fill();(document.fonts?document.fonts.ready:Promise.resolve()).then(fill);
+    let started=false;const go=()=>{if(started)return;started=true;intro.classList.add('go');setTimeout(()=>intro.classList.add('gone'),2400);};
+    addEventListener('load',()=>setTimeout(go,800));setTimeout(go,4000);
+  }
 
   const addr='marttileppmets'+String.fromCharCode(64)+'gmail.com';
   const m=document.getElementById('mail');m.href='mai'+'lto:'+addr;m.textContent=addr;
