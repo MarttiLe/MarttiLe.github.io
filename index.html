@@ -91,6 +91,8 @@ h2 em{color:var(--acc)}
 .xp .when{font-size:13px;opacity:.65}
 .xp .role{font:400 clamp(26px,2.6vw,40px)/1.1 var(--serif)}
 .xp .co{font-size:13px;margin-top:6px;opacity:.7}
+.xp .note{font-size:14px;line-height:1.6;margin-top:12px;max-width:58ch;text-wrap:pretty}
+main{transition:opacity .28s ease}main.jump{opacity:0}
 
 /* toolkit */
 .kit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
@@ -204,7 +206,7 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
   <section id="experience" data-t="bark">
     <h2 data-i18n="nExp">Experience</h2>
     <div class="xp">
-      <div class="row"><div class="when">2025 —</div><div><div class="role" data-i18n="r1">Junior Webmaster</div><div class="co">OlyBet · Tallinn</div></div></div>
+      <div class="row"><div class="when">2025 —</div><div><div class="role" data-i18n="r1">Junior Webmaster</div><div class="co">OlyBet · Tallinn</div><p class="note" data-i18n="x1">WordPress, Elementor and custom CMS sites for Estonia, Latvia, Lithuania, Croatia and France. Migrated every market I support onto one custom CMS together with my lead. I work closely with the CRM and UI/UX teams and train new marketing hires.</p></div></div>
       <div class="row"><div class="when">2024</div><div><div class="role" data-i18n="r2">Web Development &amp; Administration Manager</div><div class="co" data-i18n="c2">smeGo · Tallinn, hybrid</div></div></div>
       <div class="row"><div class="when">2022 — 23</div><div><div class="role" data-i18n="r3">Junior Web Developer</div><div class="co">Logic Technologies OÜ · Tallinn</div></div></div>
       <div class="row"><div class="when">2020 — 24</div><div><div class="role" data-i18n="r4">Courses</div><div class="co">CBT Nuggets · Project Management (CAPM) &nbsp;/&nbsp; Treehouse · Web Development Bootcamp</div></div></div>
@@ -244,13 +246,13 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
   const L={en:{nAbout:'About',nWork:'Work',nExp:'Experience',nKit:'Toolkit',nContact:'Contact',cv:'Résumé',h1:'Front‑end developer.',
     intro:'Based in Tallinn. I build WordPress and JavaScript websites that clients can manage on their own, and I’ve worked across iGaming, fintech and agency teams. Currently Junior Webmaster at OlyBet.',
     side:'Side project',study:'Study',d1:'Solo build from Figma to launch. Custom PHP brings live API data into Elementor through ACF, so the client edits every page on their own.',
-    r1:'Junior Webmaster',r2:'Web Development & Administration Manager',r3:'Junior Web Developer',r4:'Courses',c2:'smeGo · Tallinn, hybrid',
+    r1:'Junior Webmaster',x1:'WordPress, Elementor and custom CMS sites for Estonia, Latvia, Lithuania, Croatia and France. Migrated every market I support onto one custom CMS together with my lead. I work closely with the CRM and UI/UX teams and train new marketing hires.',r2:'Web Development & Administration Manager',r3:'Junior Web Developer',r4:'Courses',c2:'smeGo · Tallinn, hybrid',
     k1:'Build',k2:'Platforms',k3:'Design & growth',phone:'Phone',else:'Elsewhere',based:'Based in',city:'Tallinn, Estonia',langs:'Languages',langsV:'Estonian, English, some Finnish',
     cType:'Type',cCol:'Colour',cColV:'Moss, birch and bark',cMade:'Made',cMadeV:'By hand in Tallinn. Plain HTML, CSS and JavaScript, no framework.'},
    et:{nAbout:'Minust',nWork:'Tööd',nExp:'Kogemus',nKit:'Tööriistad',nContact:'Kontakt',cv:'CV',h1:'Front‑end arendaja.',
     intro:'Asun Tallinnas. Teen WordPressi ja JavaScripti veebilehti, mida kliendid saavad ise hallata, ning olen töötanud iGamingu, finantstehnoloogia ja agentuuri valdkonnas. Praegu töötan OlyBetis nooremveebihaldurina.',
     side:'Kõrvalprojekt',study:'Õppeprojekt',d1:'Tegin üksi, Figma kavandist avaldamiseni. Oma PHP-kood toob API andmed ACF-i kaudu Elementori mallidesse, nii et klient haldab kõiki lehti ise.',
-    r1:'Nooremveebihaldur',r2:'Veebiarenduse ja -halduse juht',r3:'Noorem veebiarendaja',r4:'Kursused',c2:'smeGo · Tallinn, hübriidtöö',
+    r1:'Nooremveebihaldur',x1:'WordPressi, Elementori ja kohandatud sisuhaldussüsteemi lehed Eestile, Lätile, Leedule, Horvaatiale ja Prantsusmaale. Viisin koos juhiga kõik minu hallatavad turud ühe kohandatud sisuhaldussüsteemi peale. Teen tihedat koostööd CRM- ja UI/UX-tiimiga ning koolitan uusi turundustöötajaid.',r2:'Veebiarenduse ja -halduse juht',r3:'Noorem veebiarendaja',r4:'Kursused',c2:'smeGo · Tallinn, hübriidtöö',
     k1:'Arendus',k2:'Platvormid',k3:'Disain ja kasv',phone:'Telefon',else:'Mujal',based:'Asukoht',city:'Tallinn, Eesti',langs:'Keeled',langsV:'eesti, inglise, veidi soome',
     cType:'Kirjatüübid',cCol:'Värvid',cColV:'Sammal, kask ja puukoor',cMade:'Tehtud',cMadeV:'Käsitsi Tallinnas. Puhas HTML, CSS ja JavaScript, ilma raamistikuta.'}};
   let lang='en';
@@ -354,6 +356,12 @@ body[data-t="bark"] .grain,body[data-t="moss"] .grain{mix-blend-mode:screen;opac
   addEventListener('resize',build);
   (document.fonts?document.fonts.ready:Promise.resolve()).then(build);build();
   applyLang(lang);
+
+  // anchor jumps: fade out, jump, fade in
+  const mainEl=document.querySelector('main'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||rm)return;const id=a.getAttribute('href').slice(1);const t=id&&document.getElementById(id);if(!t)return;
+    e.preventDefault();mainEl.classList.add('jump');
+    setTimeout(()=>{window.scrollTo({top:t.getBoundingClientRect().top+scrollY,behavior:'instant'});history.replaceState(null,'','#'+id);requestAnimationFrame(()=>mainEl.classList.remove('jump'));},280);});
 
   // page colour follows the section in view
   const navA=[...document.querySelectorAll('#nav a')],secs=[...document.querySelectorAll('main section')];
